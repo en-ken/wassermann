@@ -1,0 +1,18 @@
+language: ruby
+rvm:
+- 2.1.2
+deploy:
+  provider: heroku
+  api_key:
+    secure: aiFOXG901i3TGr8RWyI3nut02me/qzpR4gzU+To85qrP5xBYEKprRAyOvMEQhAObm9iGpoKA5GCrrV8UvgjSDmuCtDnYE8ha2OXfUOs9JY94sjStFn7h4H/IqpliYEEz0ks628iDIEj/HIecAsGR+h/eqJLVUpaO5d/jbTfwhZo=
+  run:
+    - "rake db:migrate"
+    - "rake cleanup"
+  app: aimai-lunch
+  on:
+    repo: esodov/wassermann
+addons:
+  postgresql: "9.3"
+before_script:
+  - psql -c 'create database wassermann_test;' -U postgres
+  - cp config/database.yml.travis config/database.yml
