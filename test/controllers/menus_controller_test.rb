@@ -9,4 +9,9 @@ class MenusControllerTest < ActionController::TestCase
     get :explore
     assert_response :redirect
   end
+
+  test "get redirect_to resulre" do
+    get :explore
+    assert_redirected_to result_path
+  end
 end
