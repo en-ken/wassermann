@@ -10,8 +10,8 @@ class MenusControllerTest < ActionController::TestCase
     assert_response :redirect
   end
 
-  test "get redirect_to resulre" do
+  test "get redirect_to suggest" do
     get :explore
-    assert_redirected_to result_path
+    assert_redirected_to suggest_path
   end
 end
