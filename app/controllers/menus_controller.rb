@@ -1,6 +1,6 @@
 class MenusController < ApplicationController
-  def search
+  def explore
     # search menu
-    # redirect_to "/result"
+    redirect_to "/result"
   end
 end
