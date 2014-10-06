@@ -3,4 +3,7 @@ class MenusController < ApplicationController
     # search menu
     redirect_to "/result"
   end
+
+  def seggest
+  end
 end
