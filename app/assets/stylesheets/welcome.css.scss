@@ -2,12 +2,9 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.btn.start {
-  width: 200px;
+a.btn.start {
   margin-top: 10px;
-}
-
-.btn.start > a {
+  width: 200px;
   color: #fff;
   text-decoration: none;  
 }
