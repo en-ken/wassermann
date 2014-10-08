@@ -12,4 +12,10 @@ span.menu {
   font-size: 24px;
   color: red;
 }
-
+.retry.btn {
+  width: 200px;
+}
+.retry.btn > a {
+  text-decoration: none;
+  color: #696969;
+}
