@@ -13,4 +13,7 @@ class MenusController < ApplicationController
       redirect_to :action => "suggest"
     end
   end
+  
+  def suggest
+  end
 end
