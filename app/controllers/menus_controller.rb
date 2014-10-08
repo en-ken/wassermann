@@ -1,9 +1,16 @@
 class MenusController < ApplicationController
-  def explore
-    # search menu
-    redirect_to "/suggest"
+  def index
   end
 
-  def seggest
+  def suggest
+  end
+
+  def explore
+    count = 3
+    if count < 3 then
+      render :action => "index"
+    else
+      redirect_to :action => "suggest"
+    end
   end
 end
