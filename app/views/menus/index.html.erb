@@ -1,0 +1,18 @@
+<div class="container-fluid text-center">
+  <h1>今の気分じゃないのは？</h1>
+  <p id="choice">
+    <button class="btn btn-primary btn-lg">
+      肉
+    </button>
+    <button class="btn btn-primary btn-lg">
+      魚
+    </button>
+    <button class="btn btn-primary btn-lg">
+      野菜
+    </button>
+  </p>
+  <%= :class => "btn btn-success btn-lg", button_to "次へ", {:controller => :menus, :action => :explore %>
+  <button class="btn btn-success btn-lg">
+    次へ<span class="glyphicon glyphicon-arrow-right"></span>
+  </button>
+</div>
