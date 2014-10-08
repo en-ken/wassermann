@@ -14,6 +14,4 @@ class MenusController < ApplicationController
     end
   end
   
-  def suggest
-  end
 end
