@@ -15,3 +15,11 @@
 //= require twitter/bootstrap
 //= require turbolinks
 //= require_tree .
+
+$(function(){
+  $("#choice button").click(function(){
+    $(this).toggleClass("btn-primary");
+    $(this).toggleClass("btn-lg");
+  });
+});
+
