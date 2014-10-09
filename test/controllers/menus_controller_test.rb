@@ -4,14 +4,20 @@ class MenusControllerTest < ActionController::TestCase
   # test "the truth" do
   #   assert true
   # end
+  #
 
-  test "get redirectcode when get explore path" do
-    get :explore
-    assert_response :redirect
+  test "should get index" do
+    get :index
+    assert_response :success
   end
 
-  test "get redirect_to suggest" do
+  test "should get explore" do
     get :explore
-    assert_redirected_to suggest_path
+    assert_response :success
   end
+
+#  test "get redirect_to suggest" do
+#    get :explore
+#    assert_redirected_to suggest_path
+#  end
 end
