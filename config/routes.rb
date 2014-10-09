@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
   root 'welcome#index'
+  get '/menus' => 'menus#index'
+  get '/menus/explore' => 'menus#explore'
+  get '/menus/suggest' => 'meus#suggest'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
