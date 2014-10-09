@@ -1,17 +1,23 @@
 require 'test_helper'
 
 class MenusControllerTest < ActionController::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
-
-  test "get redirectcode when get explore path" do
+  test 'should respond with success' do
     get :explore
-    assert_response :redirect
+    assert_response :success
   end
 
-  test "get redirect_to suggest" do
+  test 'should title aimai-lunch' do
     get :explore
-    assert_redirected_to suggest_path
+    assert_select 'title', 'aimai-lunch'
+  end
+
+  test 'should template index' do
+    get :explore
+    assert_template 'suggest'
+  end
+
+  test 'should have /explore link' do
+    get :explore
+    assert_select 'div a[href=/explore]'
   end
 end

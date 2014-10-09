@@ -1,12 +1,23 @@
 require 'test_helper'
 
 class WelcomeControllerTest < ActionController::TestCase
-  test "the truth" do
-    assert true
-  end
-
-  test "should get index" do
+  test 'should respond with success' do
     get :index
     assert_response :success
+  end
+
+  test 'should title aimai-lunch' do
+    get :index
+    assert_select 'title', 'aimai-lunch'
+  end
+
+  test 'should template index' do
+    get :index
+    assert_template 'index'
+  end
+
+  test 'should have /explore link' do
+    get :index
+    assert_select 'div a[href=/explore]'
   end
 end
