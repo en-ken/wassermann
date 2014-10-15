@@ -7,8 +7,8 @@ class MenusController < ApplicationController
   end
 
   def suggest
-    @feel = params[:feel]
-    if @feel == "light" then
+    feel = params[:feel]
+    if feel == "light" then
       @menu = "うどん"
     else
       @menu = "ラーメン"
