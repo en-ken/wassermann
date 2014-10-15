@@ -2,16 +2,18 @@ class MenusController < ApplicationController
   def index
   end
 
-  def suggest
+  def explore
+    render :action => "index"
   end
 
-  def explore
-    count = 3
-    if count < 3 then
-      render :action => "index"
+  def suggest
+    @feel = params[:feel]
+    if @feel == "light" then
+      @menu = "うどん"
     else
-      redirect_to :action => "suggest"
+      @menu = "ラーメン"
     end
-  end
+    render :action => "suggest"
+  end 
   
 end
