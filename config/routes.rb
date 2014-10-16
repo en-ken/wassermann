@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
   root 'welcome#index'
-  get '/explore' => 'menus#explore'
-  get '/suggest' => 'menus#suggest'
+  get "menus/index"
+  get "menus/explore"
+  get "menus/suggest"
+  #get '/explore' => 'menus#explore'
+  #get '/suggest' => 'menus#suggest'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
