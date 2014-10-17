@@ -1,17 +1,14 @@
 require 'test_helper'
 
 class MenusControllerTest < ActionController::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
-
-  test "get redirectcode when get explore path" do
-    get :explore
-    assert_response :redirect
+  #Redirect Validation
+  test 'explore should redirect to index if there is no args' do
+    get :explore, :feel => nil
+    assert_redirected_to index_path
   end
 
-  test "get redirect_to suggest" do
-    get :explore
+  test 'explore should redirect to suggest if there are args' do
+    get :suggest, :feel => 'light'
     assert_redirected_to suggest_path
   end
 end

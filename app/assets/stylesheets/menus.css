@@ -17,3 +17,6 @@ a.btn.retry {
   text-decoration: none;
   color: #696969;
 }
+li{
+  list-style: none;
+}

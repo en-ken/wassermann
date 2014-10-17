@@ -1,7 +1,6 @@
 <div class="suggestion">
   <p>あなたが今食べたいのは...</p>
-  <img src="http://www.sozai-bank.com/clip/food/ramen1.gif" class="img-circle">
-  <div><span class="menu">ラーメン</span>なようです！</div>
+  <div><span class="menu"><%= @menu %></span>なようです！</div>
 </div>
 
-<%= link_to 'Retry', '/explore', :class => 'btn btn-warning retry' %>
+<%= link_to 'Retry', 'explore', :class => 'btn btn-warning retry' %>
