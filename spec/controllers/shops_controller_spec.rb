@@ -15,4 +15,16 @@ RSpec.describe ShopsController, :type => :controller do
     end
   end
 
+  describe "#get_json_data" do
+    controller(ShopsController) do
+      def index
+        @data = JSON.parse (get_json_data)
+      end
+    end
+
+    it "should return data" do
+      get :index
+      expect(assigns[:data]).should_not be_nil
+    end
+  end
 end
