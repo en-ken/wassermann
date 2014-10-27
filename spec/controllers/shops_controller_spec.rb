@@ -24,7 +24,7 @@ RSpec.describe ShopsController, :type => :controller do
 
     it "should return data" do
       get :index
-      expect(assigns[:data]).should_not be_nil
+      expect(assigns[:data]).not_to eq(nil)
     end
   end
 end
