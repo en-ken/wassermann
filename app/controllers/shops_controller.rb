@@ -14,6 +14,9 @@ class ShopsController < ApplicationController
     
     key_id = ENV["GNAVI_KEYID"]
     category_s_code = "RSFST08002"
+    if @menu_name == "ラーメン"
+      category_s_code = "RSFST08008"
+    end
     req_param =
       "keyid=" + key_id +
       "&category_s=" + category_s_code +
