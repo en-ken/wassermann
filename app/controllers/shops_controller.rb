@@ -18,7 +18,7 @@ class ShopsController < ApplicationController
     category_s_code = "RSFST08002"
     req_param =
       "keyid=" + key_id +
-      "&category_s=" category_s_code +
+      "&category_s=" + category_s_code +
       "&pref=PREF13" +
       "&address=%E6%9D%B1%E4%BA%AC%E9%83%BD%E6%B8%8B%E8%B0%B7%E5%8C%BA"+
       "&format=json"
