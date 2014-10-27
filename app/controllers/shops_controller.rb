@@ -7,6 +7,8 @@ class ShopsController < ApplicationController
       shop = Shop.new(rest['name'], rest['url'])   
       @shops.push(shop)
     end
+    #　後藤さんの実装待ち. 下記は削除される予定
+    @menu_name = 'うどん'
   end
 
   def get_json_data
