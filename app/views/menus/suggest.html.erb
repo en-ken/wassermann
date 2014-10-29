@@ -4,4 +4,12 @@
 </div>
 
 <%= link_to 'Retry', 'explore', :class => 'btn btn-warning retry' %>
-<%= link_to '食べられるお店を見る', shops_path(menu_name: @menu), :class => 'btn btn-success' %>
+<div class="btn-group">
+  <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown">食べられるお店を見る <span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu" role="menu">
+    <% @locations.each do |loc| %>
+    <li><%= link_to loc.name, shops_path(menu_name: @menu) %></li>
+    <% end %>
+  </ul>
+</div>
