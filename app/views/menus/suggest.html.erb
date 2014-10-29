@@ -9,7 +9,7 @@
   </button>
   <ul class="dropdown-menu" role="menu">
     <% @locations.each do |loc| %>
-    <li><%= link_to loc, shops_path(menu_name: @menu) %></li>
+    <li><%= link_to loc, shops_path(menu_name: @menu, loc_name: loc) %></li>
     <% end %>
   </ul>
 </div>
