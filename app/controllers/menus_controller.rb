@@ -12,11 +12,13 @@ class MenusController < ApplicationController
       else
         @menu = "ラーメン"
       end
-      render :action => "suggest"  
+      redirect_to :action => "suggest", :menu => @menu 
     end
   end
 
   def suggest
+    @locations = Location.all
+    @menu = params[:menu]
   end 
   
 end
