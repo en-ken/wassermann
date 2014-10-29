@@ -5,7 +5,7 @@ BASE_URL = "http://maps.googleapis.com/maps/api/geocode/json"
 
 class InsertInitialLocations < ActiveRecord::Migration
   def change
-    loc_names = ['東京','有楽町','新橋','浜松町','田町','品川','大崎','五反田','目黒','恵比寿','渋谷','原宿','代々木','新宿','新大久保','高田馬場','目白','池袋','大塚','巣鴨','駒込','田端','西日暮里','日暮里','鶯谷','上野','御徒町','秋葉原','神田']
+    loc_names = ['東京駅','有楽町駅','新橋駅','浜松町駅','田町駅','品川駅','大崎駅','五反田駅','目黒駅','恵比寿駅','渋谷駅','原宿駅','代々木駅','新宿駅','新大久保駅','高田馬場駅','目白駅','池袋駅','大塚駅','巣鴨駅','駒込駅','田端駅','西日暮里駅','日暮里駅','鶯谷駅','上野駅','御徒町駅','秋葉原駅','神田駅']
     loc_names.each do |loc_name|
       url = "#{BASE_URL}?address=#{URI.encode(loc_name)}&sensor=false&language=ja"
       res = Net::HTTP.get_response(URI.parse(url))
