@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   get "menus/index"
   get "menus/explore"
   get "menus/suggest"
+  get "/characters" => "characters#index"
   get "/shops" => "shops#index"
 
   #get '/explore' => 'menus#explore'
