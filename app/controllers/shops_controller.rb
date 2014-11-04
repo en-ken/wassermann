@@ -18,7 +18,9 @@ class ShopsController < ApplicationController
       category_s_code = "RSFST08008"
     end
     loc_name = params[:loc_name]
+    puts loc_name
     location = Location.find_by(name: loc_name)
+    puts location
     latitude_degree = location.latitude
     longitude_degree = location.longitude
 
