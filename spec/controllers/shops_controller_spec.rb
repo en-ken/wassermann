@@ -4,7 +4,7 @@ RSpec.describe ShopsController, :type => :controller do
   describe "GET #index" do
 
     it "responds successfully with an HTTP 200 status code and renders the index template" do
-      get :index, :loc_name=>'渋谷駅'
+      get :index, :menu_name => 'うどん', :loc_name=>'渋谷駅'
       expect(response).to be_success
       expect(response).to have_http_status(200)
       expect(response).to render_template("index")
@@ -14,12 +14,14 @@ RSpec.describe ShopsController, :type => :controller do
   describe "#get_json_data" do
     controller(ShopsController) do
       def index
+        @menu_name = "うどん"
+        @loc_name = "渋谷駅"
         @data = JSON.parse (get_json_data)
       end
     end
 
     it "should return data" do
-      get :index, :loc_name=>'渋谷駅', :menu_name=>'うどん'
+      get :index
       expect(assigns[:data]).not_to eq(nil)
     end
   end
