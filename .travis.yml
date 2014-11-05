@@ -6,7 +6,7 @@ deploy:
   api_key:
     secure: aiFOXG901i3TGr8RWyI3nut02me/qzpR4gzU+To85qrP5xBYEKprRAyOvMEQhAObm9iGpoKA5GCrrV8UvgjSDmuCtDnYE8ha2OXfUOs9JY94sjStFn7h4H/IqpliYEEz0ks628iDIEj/HIecAsGR+h/eqJLVUpaO5d/jbTfwhZo=
   run:
-    - "rake db:migrate:reset RAILS_ENV=test"
+    - "rake db:migrate:reset RAILS_ENV=test --trace"
     - "rake cleanup"
   app: aimai-lunch
   on:
