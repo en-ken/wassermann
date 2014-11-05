@@ -3,14 +3,10 @@ require 'rails_helper'
 RSpec.describe ShopsController, :type => :controller do
   describe "GET #index" do
 
-    it "responds successfully with an HTTP 200 status code" do
-      get :index
+    it "responds successfully with an HTTP 200 status code and renders the index template" do
+      get :index, :loc_name=>'渋谷駅'
       expect(response).to be_success
       expect(response).to have_http_status(200)
-    end
-
-    it "renders the index template" do
-      get :index
       expect(response).to render_template("index")
     end
   end
@@ -23,7 +19,7 @@ RSpec.describe ShopsController, :type => :controller do
     end
 
     it "should return data" do
-      get :index
+      get :index, :loc_name=>'渋谷駅', :menu_name=>'うどん'
       expect(assigns[:data]).not_to eq(nil)
     end
   end
