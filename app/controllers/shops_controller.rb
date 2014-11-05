@@ -1,6 +1,7 @@
 class ShopsController < ApplicationController
   def index
     @menu_name = params[:menu_name]
+    @loc_name = params[:loc_name]
     data = JSON.parse (get_json_data)
     @shops = Array.new
     data['rest'].each do |rest|
@@ -17,10 +18,7 @@ class ShopsController < ApplicationController
     if @menu_name == "ラーメン"
       category_s_code = "RSFST08008"
     end
-    loc_name = params[:loc_name]
-    puts loc_name
-    location = Location.find_by(name: loc_name)
-    puts location
+    location = Location.find_by(name: @loc_name)
     latitude_degree = location.latitude
     longitude_degree = location.longitude
 
