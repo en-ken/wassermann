@@ -16,3 +16,4 @@ addons:
 before_script:
   - psql -c 'create database wassermann_test;' -U postgres
   - cp config/database.yml.travis config/database.yml
+  - bundle exec rake db:migrate RAILS_ENV=test
