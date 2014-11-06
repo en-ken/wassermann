@@ -6,8 +6,8 @@ deploy:
   api_key:
     secure: aiFOXG901i3TGr8RWyI3nut02me/qzpR4gzU+To85qrP5xBYEKprRAyOvMEQhAObm9iGpoKA5GCrrV8UvgjSDmuCtDnYE8ha2OXfUOs9JY94sjStFn7h4H/IqpliYEEz0ks628iDIEj/HIecAsGR+h/eqJLVUpaO5d/jbTfwhZo=
   run:
+    - "rake db:migrate RAILS_ENV=test"
     - "rake spec"
-    - "rake cleanup"
   app: aimai-lunch
   on:
     repo: esodov/wassermann
@@ -16,4 +16,3 @@ addons:
 before_script:
   - psql -c 'create database wassermann_test;' -U postgres
   - cp config/database.yml.travis config/database.yml
-  - bundle exec rake db:migrate RAILS_ENV=test
