@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   root 'welcome#index'
+  get "/choice" => "welcome#choose"
   get "menus/index"
   get "menus/explore"
   get "menus/suggest"
