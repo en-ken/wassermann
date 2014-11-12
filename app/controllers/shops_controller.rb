@@ -4,9 +4,13 @@ class ShopsController < ApplicationController
     @loc_name = params[:loc_name]
     data = JSON.parse (get_json_data)
     @shops = Array.new
-    data['rest'].each do |rest|
-      shop = Shop.new(rest['name'], rest['url'])
-      @shops.push(shop)
+    if data['error'] then
+      puts data['error']['code'] 
+    else
+      data['rest'].each do |rest|
+        shop = Shop.new(rest['name'], rest['url'])
+        @shops.push(shop)
+      end
     end
   end
 

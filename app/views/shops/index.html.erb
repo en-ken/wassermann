@@ -1,5 +1,9 @@
 <h1><label><%= @loc_name %>近くの</label><label><%= @menu_name %></label>の候補店一覧</h1>
 
+<% if @shops.empty? then %>
+  <h3>付近に店舗が見当たりません。</h3>
+  <%= link_to "戻る", {:controller => "menus", :action => "suggest", :menu => @menu_name}, :class => "btn btn-info" %>
+<% else %>
 <div class="list-group">
   <% @shops.each do |shop| %>
     <a href="<%= shop.url %>" class="list-group-item">
@@ -7,3 +11,4 @@
     </a>
   <% end %>
 </div>
+<% end %>
