@@ -2,9 +2,63 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-a.btn.start {
-  margin-top: 10px;
-  width: 200px;
+body{
+  @media only screen and (max-width: 1024px) {
+    background-image: url(/images/small_bg.jpg);
+  }
+  @media only screen and (min-width: 1025px) and (max-width:2048px) {
+    background-image: url(/images/medium_bg.jpg);
+  }
+  @media only screen and (min-width: 2049px) {
+    background-image: url(/images/large_bg.jpg);
+  }
+
+  /* 画像を常に天地左右の中央に配置 */
+  background-position: center center;
+   
+  /* 画像をタイル状に繰り返し表示しない */
+  background-repeat: no-repeat;
+   
+  /* コンテンツの高さが画像の高さより大きい時、動かないように固定 */
+  background-attachment: fixed;
+   
+  /* 表示するコンテナの大きさに基づいて、背景画像を調整 */
+  background-size: cover;
+   
+  /* 背景画像が読み込まれる前に表示される背景のカラー */
+  background-color: #464646;
+}
+
+
+@mixin page-element{
+  //position: absolute;
+  margin-left: auto;
+  margin-right: auto;
+  text-align:center;
+  width:80%;
+}
+
+#parent{
+  @include page-element;
+}
+
+#title{
+  @include page-element;
+  margin-top: 10%;
   color: #fff;
+  font-size:65px;
+}
+
+#explanation{
+  @include page-element;
+  margin-top: 3%;
+  color: #fff;
+  font-size:27px;
+}
+
+#start-button{
+  @include page-element;
+  width:200px;
+  margin-top: 15%;
   text-decoration: none;  
 }
