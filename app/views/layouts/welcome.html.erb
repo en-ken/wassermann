@@ -37,52 +37,11 @@
     <%= javascript_include_tag "application" %>
   </head>
   <body>
-
-    <!--
-    <div class="navbar navbar-static-top">
-      <div class="container">
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-brand" href="/">あいまいランチ</a>
-        <div class="nav-collapse collapse navbar-responsive-collapse">
-          <ul class="nav navbar-nav">
-            <li><%= link_to "Link1", "/path1"  %></li>
-            <li><%= link_to "Link2", "/path2"  %></li>
-            <li><%= link_to "Link3", "/path3"  %></li>
-          </ul>
-        </div>
-      </div>
+    <div id="welcome">
+      <%= yield %>
     </div>
-    -->
-
-    
-    <div class="container">
-      <div class="row">
-        <%= bootstrap_flash %>
-        <%= yield %>
-        <!--
-        <div class="col-lg-3">
-          <div class="well sidebar-nav">
-            <h3>Sidebar</h3>
-            <ul class="nav nav-list">
-              <li class="nav-header">Sidebar</li>
-              <li><%= link_to "Link1", "/path1"  %></li>
-              <li><%= link_to "Link2", "/path2"  %></li>
-              <li><%= link_to "Link3", "/path3"  %></li>
-            </ul>
-          </div>
-        </div>
-        -->
-      </div>
-
-      <footer>
-        <p>&copy; enPiT BizApp wassermann 2014</p>
-      </footer>
-
-    </div> <!-- /container -->
-
+    <footer>
+      <p>&copy; enPiT BizApp wassermann 2014</p>
+    </footer>
   </body>
 </html>

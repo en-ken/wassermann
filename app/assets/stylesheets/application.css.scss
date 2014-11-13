@@ -13,10 +13,17 @@
  *= require_tree .
  */
 
+html, body{
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
 footer {
   color: #CFCFCF;
-  position:absolute;
-  bottom:0;
+  position: absolute;
+  bottom: 0;
 }
 
 .disabled_wall {

@@ -3,7 +3,7 @@ class WelcomeController < ApplicationController
   end
 
   def choose
-    render "choice"
+    render :layout => 'application', :action => "choice"
   end
 
 end
