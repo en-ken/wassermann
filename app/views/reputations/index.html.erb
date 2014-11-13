@@ -1,0 +1,5 @@
+<% i = 0 %>
+<% while @comment[i].comment.empty? do%>
+ <% i = i + 1 %>
+<% end %>
+<div><%= @comment[i].comment %></div>
