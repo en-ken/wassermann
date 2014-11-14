@@ -18,7 +18,7 @@
 //= require spin
 //= require jquery.spin
 $(function(){
-     $(document).on('click', 'ul.dropdown-menu > li > a', function(){
+     $(document).on('click', '.spinner', function(){
           var opts = {
             lines: 13, // The number of lines to draw
             length: 20, // The length of each line

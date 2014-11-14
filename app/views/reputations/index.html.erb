@@ -1,0 +1,9 @@
+<% i = 0 %>
+<% while @comment[i].comment.empty? do%>
+ <% i = i + 1 %>
+<% end %>
+<div class="balloon"><%= @comment[i].comment %></div>
+
+<% url = @comment[i].url %>
+<%= link_to 'このお店でランチする', url, :class => 'btn btn-success reputation', :target => '_blank' %>
+
