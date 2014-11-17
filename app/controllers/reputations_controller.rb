@@ -5,7 +5,7 @@ class ReputationsController < ApplicationController
     @comment = Array.new
     for num in 0..14 do
       photo = data["response"][num.to_s]["photo"]
-      shop = Shop.new('', photo['shop_url'], photo['comment'])
+      shop = Shop.new(photo['shop_name'], photo['shop_url'], photo['comment'], photo['image_url'], '')
       @comment.push(shop)
     end
   end

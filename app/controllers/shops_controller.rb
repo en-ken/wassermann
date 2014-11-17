@@ -8,7 +8,7 @@ class ShopsController < ApplicationController
       puts data['error']['code'] 
     else
       data['rest'].each do |rest|
-        shop = Shop.new(rest['name'], rest['url'],rest['pr']['short'])
+        shop = Shop.new(rest['name'], rest['url'], rest['pr']['short'], rest['image_url'], '')
         @shops.push(shop)
       end
     end
