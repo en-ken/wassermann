@@ -5,7 +5,7 @@
   </button>
   <ul class="dropdown-menu" role="location">
     <% @locations.each do |loc| %>
-    <li><%= link_to loc, '#' %></li>
+    <li><%= loc %></li>
     <% end %>
   </ul>
 </div>
@@ -19,6 +19,9 @@ $(function(){
   $("ul[role='location'] li").click(function(){
     $("li.selected").removeClass("selected");
     $(this).addClass("selected");
+    $(this).parents(".btn-group").find('.btn').html(
+      $(this).text()+" <span class=\"caret\"></span>"
+    );
   });
 
   $("a.choice").click(function(){
