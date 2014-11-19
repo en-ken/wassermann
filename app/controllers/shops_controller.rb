@@ -14,6 +14,31 @@ class ShopsController < ApplicationController
     end
   end
 
+  def multi
+    @menu_name = params[:menu_name]
+    @loc_name = params[:loc_name]
+    data = JSON.parse (get_json_data)
+    @shops = Array.new
+    if data['error'] then
+      puts data['error']['code'] 
+    else
+      data['rest'].each do |rest|
+      img_url = "/images/noimage.png"
+      img_url1 = rest['image_url']['shop_image1']
+      img_url2 = rest['image_url']['shop_image2']
+      if img_url1.empty? then
+        if img_url2.present? then
+          img_url = img_url2
+        end
+      else
+        img_url = img_url1
+      end
+      shop = Shop.new(rest['name'], rest['url'], rest['pr']['short'], img_url, '')
+        @shops.push(shop)
+      end
+    end
+  end
+
   def get_json_data
     #TODO:エラー処理が必要
 
