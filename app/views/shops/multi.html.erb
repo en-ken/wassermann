@@ -17,12 +17,11 @@
   <div class="carousel-inner" role="listbox">
     <% @shops.each do |shop| %>
     <div class="item">
-      <img src="<%= shop.img_url %>" alt="...">
+      <%= link_to image_tag(shop.img_url, :border => 0, :alt => shop.name), shop.url, :target => '_blank' %>
       <div class="carousel-caption">
-        <label><%= shop.name %></label>
+        <label><%= link_to shop.name, shop.url, :target => '_blank' %></label>
         <label><%= shop.keyword %></label>
       </div>
-      <%= link_to 'このお店でランチする', shop.url, :class => 'btn btn-success reputation', :target => '_blank' %>
     </div>
     <% end %>
   </div>
