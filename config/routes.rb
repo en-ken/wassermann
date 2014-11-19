@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   get "/characters/explore"
   get "/characters/suggest" 
   get "/shops" => "shops#index"
+  get "/shops/multi" => "shops#multi"
   get "/reputations" => "reputations#index"
 
   #get '/explore' => 'menus#explore'
