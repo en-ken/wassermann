@@ -22,6 +22,7 @@
         <label><%= shop.name %></label>
         <label><%= shop.keyword %></label>
       </div>
+      <%= link_to 'このお店でランチする', shop.url, :class => 'btn btn-success reputation', :target => '_blank' %>
     </div>
     <% end %>
   </div>
