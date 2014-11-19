@@ -16,6 +16,8 @@
 
 <script>
 $(function(){
+  $("ul[role='location'] li:first").addClass("selected");
+
   $("ul[role='location'] li").click(function(){
     $("li.selected").removeClass("selected");
     $(this).addClass("selected");
