@@ -1,7 +1,32 @@
 <p>どうやってランチを選ぶ？</p>
 
-<%= link_to "性格重視", {:controller => "characters", :action => "index" },:class => "btn btn-info" %>
-<%= link_to "顔重視", "#", :class => "btn btn-info" %>
-<%= link_to "経済力重視", "#", :class => "btn btn-info" %>
-<%= link_to "評判重視", {:controller => "reputations", :action => "index" }, :class => "btn btn-info spinner" %>
+<div class="btn-group">
+  <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown">食べられるお店を見る <span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu" role="location">
+    <% @locations.each do |loc| %>
+    <li><%= loc %></li>
+    <% end %>
+  </ul>
+</div>
+<%= link_to "性格重視", {:controller => "characters", :action => "index" },:class => "btn btn-info choice", :name => "character" %>
+<%= link_to "顔重視", "#", :class => "btn btn-info choice", :name => "visual" %>
+<%= link_to "経済力重視", "#", :class => "btn btn-info choice", :name => "money" %>
+<%= link_to "評判重視", {:controller => "reputations", :action => "index" }, :class => "btn btn-info spinner choice", :name => "reputation" %>
 
+<script>
+$(function(){
+  $("ul[role='location'] li").click(function(){
+    $("li.selected").removeClass("selected");
+    $(this).addClass("selected");
+    $(this).parents(".btn-group").find('.btn').html(
+      $(this).text()+" <span class=\"caret\"></span>"
+    );
+  });
+
+  $("a.choice").click(function(){
+    var originalHref = $(this).attr("href");
+    $(this).attr("href", originalHref + "?location=" + $("li.selected").text());
+  });
+});
+</script>
