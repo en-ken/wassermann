@@ -1,6 +1,5 @@
-<p>どんなやつがお好み？</p>
+<p>どんな人がお好み？</p>
 
-<%= link_to "あっさり", {:action => "explore", :feel => "light"}, :class => "btn btn-info" %>
-<%= link_to "こってり", {:action => "explore", :feel => "heavy"}, :class => "btn btn-info" %>
-<%= link_to "わからない", {:action => "explore", :feel => "unknown"}, :class => "btn btn-info" %>
-
+<% @charas.each do |chara| %>
+<%= link_to chara, {:action => "select", :loc_name => @loc_name, :chara => chara}, :class => "btn btn-info" %>
+<% end %>

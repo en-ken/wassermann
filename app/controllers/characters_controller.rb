@@ -1,22 +1,20 @@
 class CharactersController < ApplicationController
-  def explore
-    feel = params[:feel]
-    if feel == nil then
-      render :action => "index"
-    else
-      if feel == "light" then
-        @menu = "うどん"
-      else
-        @menu = "ラーメン"
-      end
-      redirect_to :action => "suggest", :menu => @menu 
-    end
+
+  @loc_name #場所のデータ保持用(indexからView経由でselectに渡す)
+  @charas #雰囲気の表示用(index)
+
+  def index
+    @loc_name = params[:location]
+    @charas = get_charas
   end
 
-  def suggest
-    @locations = ['東京','有楽町','新橋','浜松町','田町','品川','大崎','五反田','目黒','恵比寿','渋谷','原宿','代々木','新宿','新大久保','高田馬場','目白','池袋','大塚','巣鴨','駒込','田端','西日暮里','日暮里','鶯谷','上野','御徒町','秋葉原','神田']
-    @menu = params[:menu]
-    redirect_to :controller => "menus", :action => "suggest", :menu => @menu
+  #character選択後の遷移
+  def select
+    redirect_to shops_multi_url(:loc_name => params[:loc_name], :chara => params[:chara])
   end
 
+  #DBからcharacterのみ取得
+  def get_charas
+    return Character.pluck(:character)
+  end
 end

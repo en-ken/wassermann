@@ -1,11 +1,14 @@
+
 class ShopsController < ApplicationController
+  GNAVI_REST_URL='http://api.gnavi.co.jp/ver1/RestSearchAPI/'
+
   def index
     @menu_name = params[:menu_name]
     @loc_name = params[:loc_name]
-    data = JSON.parse (get_json_data)
+    data = JSON.parse (get_json_data(loc_name))
     @shops = Array.new
     if data['error'] then
-      puts data['error']['code'] 
+      puts data['error']['code']
     else
       data['rest'].each do |rest|
         shop = Shop.new(rest['name'], rest['url'], rest['pr']['short'], rest['image_url'], '')
@@ -15,12 +18,14 @@ class ShopsController < ApplicationController
   end
 
   def multi
-    @menu_name = params[:menu_name]
-    @loc_name = params[:loc_name]
-    data = JSON.parse (get_json_data)
+    loc_name = params[:loc_name]
+    chara = params[:chara]
+    freewords = get_freewords(chara)
+    data = JSON.parse (get_json_data(loc_name, freewords))
+
     @shops = Array.new
     if data['error'] then
-      puts data['error']['code'] 
+      puts data['error']['code']
     else
       data['rest'].each do |rest|
       img_url = "/images/noimage.png"
@@ -39,30 +44,37 @@ class ShopsController < ApplicationController
     end
   end
 
-  def get_json_data
+  #JSONデータを取得する
+  def get_json_data(loc_name, freewords='')
     #TODO:エラー処理が必要
-
     key_id = ENV["GNAVI_KEYID"]
-    category_s_code = "RSFST08002"
-    if @menu_name == "ラーメン"
-      category_s_code = "RSFST08008"
-    end
-    location = Location.find_by(name: @loc_name)
+
+    location = Location.find_by(:name => loc_name)
     latitude_degree = location.latitude
     longitude_degree = location.longitude
 
-    req_param =
-      "keyid=" + key_id +
-      "&category_s=" + category_s_code +
-      "&pref=PREF13" +
-      "&latitude=" + latitude_degree +
-      "&longitude=" + longitude_degree +
-      "&range=2" +
-      "&format=json"
-    req_url="http://api.gnavi.co.jp/ver1/RestSearchAPI/?"
-    puts req_url + req_param
-    return HTTPClient.new.get_content(req_url + req_param)
+    get_data = {
+      'keyid' => key_id,
+      'input_coordinates_mode' => 2, #世界標準系指定
+      'latitude' => latitude_degree,
+      'longitude' => longitude_degree,
+      'range' => 3, #1000m範囲
+      #'category_s' => '',
+      'freeword' => freewords,
+      'freeword_condition' => 2, #OR検索
+      'format' => 'json'
+    }
+    client = HTTPClient.new
+    begin
+      return client.get_content(GNAVI_REST_URL, get_data)
+    rescue HTTPClient::BadResponseError => e
+    rescue HTTPClient::TimeoutError => e
+    end
   end
 
+  #DBから雰囲気に紐づくfreeword(フリーワード)を取得する
+  def get_freewords(chara)
+    chara = Character.find_by(character:chara)
+    return chara.freewords
+  end
 end
-

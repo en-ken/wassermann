@@ -1,11 +1,8 @@
 Rails.application.routes.draw do
   root 'welcome#index'
   get "/choice" => "welcome#choose"
-  get "menus/index"
-  get "menus/explore"
-  get "menus/suggest"
   get "/characters" => "characters#index"
-  get "/characters/explore"
+  get "/characters/select"
   get "/characters/suggest" 
   get "/shops" => "shops#index"
   get "/shops/multi" => "shops#multi"
