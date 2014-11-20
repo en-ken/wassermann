@@ -44,6 +44,8 @@ gem 'httpclient'
 # Use Twitter Bootstrap
 gem 'twitter-bootstrap3-rails'
 
+gem 'nokogiri'
+
 gem 'rspec-rails', group: [:development, :test]
 gem 'factory_girl_rails', group: [:development, :test]
 gem 'capybara', group: [:development, :test]

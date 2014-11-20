@@ -165,6 +165,7 @@ DEPENDENCIES
   httpclient
   jbuilder (~> 2.0)
   jquery-rails
+  nokogiri
   pg
   rails (= 4.1.6)
   rails_12factor
