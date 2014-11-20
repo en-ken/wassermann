@@ -7,6 +7,6 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 #db/seedディレクトリ下の.rbファイルを実行する
-Dir.glob(File.join(Rails.root, 'db', 'seeds', '*.rb')) do |file|
+Dir.glob(File.join(Rails.root, 'db', 'seeds', 'characters.rb')) do |file|
   load(file)
 end
