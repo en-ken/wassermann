@@ -2,6 +2,8 @@ require 'csv'
 
 CSV_FILE = 'db/characters - freewords.csv'
 
+Character.delete_all
+
 table = CSV.table(CSV_FILE, encoding: 'UTF-8:UTF-8')
 table.each do |row|
   chara = Character.new
