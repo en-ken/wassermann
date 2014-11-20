@@ -2,6 +2,8 @@
 GNAVI_CAT_URL = "http://api.gnavi.co.jp/ver1/CategorySmallSearchAPI/"
 get_data = {"keyid" => ENV["GNAVI_KEYID"]}
 
+ShopCategory.delete_all
+
 client = HTTPClient.new
 xml_data = client.get_content(GNAVI_CAT_URL, get_data)
 
