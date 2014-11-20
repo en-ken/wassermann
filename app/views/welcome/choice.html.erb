@@ -16,6 +16,12 @@
 
 <script>
 $(function(){
+  var hrefReset = function(){
+    $("a.choice[name='character']").attr("href","/characters");
+    $("a.choice[name='reputation']").attr("href","/reputations");
+  };
+
+  $(".selected").removeClass("selected");
   $("ul[role='location'] li:first").addClass("selected");
 
   $("ul[role='location'] li").click(function(){
@@ -27,6 +33,7 @@ $(function(){
   });
 
   $("a.choice").click(function(){
+    hrefReset();
     var originalHref = $(this).attr("href");
     $(this).attr("href", originalHref + "?location=" + $("li.selected").text());
   });
