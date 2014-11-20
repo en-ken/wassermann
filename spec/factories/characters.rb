@@ -3,6 +3,6 @@
 FactoryGirl.define do
   factory :character do
     character "MyString"
-    keywords "MyString"
+    freewords "MyString"
   end
 end

@@ -1,5 +1,5 @@
 <p>どんな人がお好み？</p>
 
 <% @charas.each do |chara| %>
-<%= link_to chara, {:action => "select", :chara => chara}, :class => "btn btn-info" %>
+<%= link_to chara, {:action => "select", :loc_name => @loc_name, :chara => chara}, :class => "btn btn-info" %>
 <% end %>

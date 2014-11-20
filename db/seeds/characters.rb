@@ -1,18 +1,21 @@
 require 'csv'
 
-CSV_FILE = 'db/characters_tmp.csv'
+CSV_FILE = 'db/characters - freewords.csv'
 
 table = CSV.table(CSV_FILE, encoding: 'UTF-8:UTF-8')
 table.each do |row|
   chara = Character.new
   chara.character = row[:character]
-  keywords = ""
-  row.fields(1..11) #keyword1..10を取得
-    .delete_if{|kw| kw == nil} #nilを削除
-    .each do |kw|
-      keywords << ',' << kw
+  freewords = ""
+  row.fields(1..11) #freeword1..10を取得
+    .delete_if{|fw| fw == nil} #nilを削除
+    .each do |fw|
+      if(!freewords.empty?)
+        freewords << ','
+      end
+      freewords << fw
   end
-  chara.keywords = keywords
+  chara.freewords = freewords
   chara.save
-  puts chara.character, chara.keywords
+  puts chara.character, chara.freewords
 end
