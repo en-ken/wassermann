@@ -39,6 +39,13 @@
 
 <script>
 $(function(){
+  $(".item img").error(function() {
+    $(this).attr({
+      src: '/images/noimage.png',
+      alt: 'no image'
+    });
+  });
+
   $(".carousel-indicators li:first").addClass("active");
   $(".carousel-inner .item:first").addClass("active");
 
