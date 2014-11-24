@@ -1,9 +1,9 @@
-<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+<h1><%= @loc_name %>近くの「<%= @chara %>」な候補者</h1>
+<div id="carousel-example-generic" class="carousel slide" data-ride="carousel" data-interval="false">
   <% if @shops.empty? then %>
-    <h3>付近に店舗が見当たりません。</h3>
+    <h3>付近にそんな人が見当たりません。</h3>
     <%= link_to "戻る" %>
   <% else %>
-
   <!-- Indicators -->
     <% count = 0 %>
   <ol class="carousel-indicators">
@@ -20,19 +20,22 @@
       <%= link_to image_tag(shop.img_url, :border => 0, :alt => shop.name), shop.url, :target => '_blank' %>
       <div class="carousel-caption">
         <label><%= link_to shop.name, shop.url, :target => '_blank' %></label>
-        <label><%= shop.keyword %></label>
+        <% shop.keyword.each do |word| %>
+        <label class="keywords"><%= word %></label>
+        <% end %>
       </div>
     </div>
     <% end %>
   </div>
   <% end %>
+
   <!-- Controls -->
   <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
-    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"><label>&lt;</label></span>
     <span class="sr-only">Previous</span>
   </a>
   <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
-    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"><label>&gt;</label></span>
     <span class="sr-only">Next</span>
   </a>
 </div>

@@ -18,10 +18,10 @@ class ShopsController < ApplicationController
   end
 
   def multi
-    loc_name = params[:loc_name]
-    chara = params[:chara]
-    freewords = get_freewords(chara)
-    data = JSON.parse (get_json_data(loc_name, freewords))
+    @loc_name = params[:loc_name]
+    @chara = params[:chara]
+    freewords = get_freewords(@chara)
+    data = JSON.parse (get_json_data(@loc_name, freewords))
 
     @shops = Array.new
     if data['error'] then
@@ -38,7 +38,12 @@ class ShopsController < ApplicationController
       else
         img_url = img_url1
       end
-      shop = Shop.new(rest['name'], rest['url'], rest['pr']['short'], img_url, '')
+      keywords = rest['code']['category_name_s']
+      keywords.delete_if {
+        |word| word.is_a? Hash
+      }
+      puts keywords
+      shop = Shop.new(rest['name'], rest['url'], rest['pr']['short'], img_url, rest['code']['category_name_s'])
         @shops.push(shop)
       end
     end
