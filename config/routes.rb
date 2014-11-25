@@ -3,7 +3,6 @@ Rails.application.routes.draw do
   get "/choice" => "welcome#choose"
   get "/characters" => "characters#index"
   get "/characters/select"
-  get "/characters/suggest" 
   get "/shops" => "shops#index"
   get "/shops/multi" => "shops#multi"
   get "/reputations" => "reputations#index"
