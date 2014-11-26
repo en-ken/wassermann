@@ -3,7 +3,7 @@
 <!-- 配列をランダムに並び替えて先頭5つ表示 -->
 <div>
 <% @charas.sort_by{rand}[0..4].each do |chara| %>
-<%= link_to chara, characters_select_path(:loc_name => @loc_name, :chara => chara), :class => "btn btn-info" %>
+<%= link_to chara, characters_select_path(:loc_name => @loc_name, :chara => chara), :class => "btn btn-info spinner" %>
 <% end %>
 </div>
-<%= link_to "別のタイプを表示", characters_path(:location =>@loc_name), :class => "btn" %>
+<%= link_to "別のタイプを表示", characters_path(:location =>@loc_name) %>
