@@ -50,7 +50,10 @@ class ShopsController < ApplicationController
   end
 
   def single
-    @shop = Shop.new(params[:shop_name], params[:shop_url], params[:comment], params[:image_url], '')
+    i = params[:number].to_i
+    @shop = session[:reputation][i]
+    puts @shop.name
+    #@shop = Shop.new(shop.name, shop.url, shop.comment, shop.img_url, '')
   end
 
   #JSONデータを取得する

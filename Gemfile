@@ -50,3 +50,8 @@ gem 'rspec-rails', group: [:development, :test]
 gem 'factory_girl_rails', group: [:development, :test]
 gem 'capybara', group: [:development, :test]
 gem 'spinjs-rails'
+
+# use JSON in session store
+gem 'redis'
+gem 'redis-store', github: 'bricker/redis-store'
+gem 'redis-rails', github: 'bricker/redis-store'

@@ -8,6 +8,7 @@ class ReputationsController < ApplicationController
       shop = Shop.new(photo['shop_name'], photo['shop_url'], photo['comment'], photo['image_url'], '')
       @comment.push(shop)
     end
+    session[:reputation] = @comment
   end
 
   def get_json_data
