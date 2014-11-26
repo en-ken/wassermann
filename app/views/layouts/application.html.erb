@@ -45,16 +45,7 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <%= link_to "あいまいランチ", {:controller => "welcome", :action => "index"} %>
-        <!--
-        <div class="nav-collapse collapse navbar-responsive-collapse">
-          <ul class="nav navbar-nav">
-            <li><%= link_to "Link1", "/path1"  %></li>
-            <li><%= link_to "Link2", "/path2"  %></li>
-            <li><%= link_to "Link3", "/path3"  %></li>
-          </ul>
-        </div>
-        -->
+        <a id="redirect_root" class="navbar-brand" >Aimai Lunch</a>	
       </div>
     </div>
 
@@ -83,6 +74,10 @@
       </footer>
 
     </div> <!-- /container -->
-
+    <script type="text/javascript">
+      $('#redirect_root').click(function() {  
+       $('head').append('<meta http-equiv="refresh" content="0; URL=/">');
+      });  
+    </script>
   </body>
 </html>
