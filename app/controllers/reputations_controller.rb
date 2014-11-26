@@ -1,38 +1,47 @@
 class ReputationsController < ApplicationController
+  GNAVI_REPT_URL='http://api.gnavi.co.jp/ouen/ver1/PhotoSearch'
+
   def index
-    #@loc_name = params[:loc_name]
-    data = JSON.parse (get_json_data)
-    @comment = Array.new
-    @test = Array.new
-    for num in 0..14 do
-      photo = data["response"][num.to_s]["photo"]
-      shop = Shop.new(photo['shop_name'], photo['shop_url'], photo['comment'], photo['image_url']['url_320'], '')
-      @comment.push(shop)
-      @test.push(shop)
+    @loc_name = params[:location]
+    data = JSON.parse (get_json_data(@loc_name))
+
+    @shops = Array.new
+    count = 0
+    response = data['response']
+    response.each do |key, value|
+      if key == 'total_hit_count'
+        count = value
+      elsif key =~ (/[0-9]*/) #keyが数字のとき
+        shop = Shop.new(value['shop_name'], value['shop_url'], value['comment'], value['image_url'], '')
+        if shop.present? #コメントがあれば詰める
+          @shops.push(shop)
+        end
+      end
     end
     session[:reputation] = @test
   end
 
-  def get_json_data
-    #TODO:エラー処理が必要
-
+  def get_json_data(loc_name)
     key_id = ENV["GNAVI_KEYID"]
-    #location = Location.find_by(name: @loc_name)
-    #latitude_degree = location.latitude
-    #longitude_degree = location.longitude
-    latitude_degree = "35.658517"
-    longitude_degree = "139.701334"
 
-    req_param =
-      "keyid=" + key_id +
-      "&latitude=" + latitude_degree +
-      "&longitude=" + longitude_degree +
-      "&range=2" +
-      "&order=distance" +
-      "&format=json"
-    req_url="http://api.gnavi.co.jp/ouen/ver1/PhotoSearch/?"
-    puts req_url + req_param
-    return HTTPClient.new.get_content(req_url + req_param)
+    location = Location.find_by(name: loc_name)
+    latitude_degree = location.latitude
+    longitude_degree = location.longitude
+
+    get_data = {
+      'keyid' => key_id,
+      'latitude' => latitude_degree,
+      'longitude' => longitude_degree,
+      'range' => 3, #1000m範囲
+      'order' => 'distance',
+      'format' => 'json'
+    }
+    client = HTTPClient.new
+    begin
+      return client.get_content(GNAVI_REPT_URL, get_data)
+    rescue HTTPClient::BadResponseError => e
+    rescue HTTPClient::TimeoutError => e
+    end
   end
 
 end
