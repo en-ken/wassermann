@@ -49,6 +49,10 @@ class ShopsController < ApplicationController
     end
   end
 
+  def single
+    @shop = Shop.new(params[:shop_name], params[:shop_url], params[:comment], params[:image_url], '')
+  end
+
   #JSONデータを取得する
   def get_json_data(loc_name, freewords='')
     #TODO:エラー処理が必要
