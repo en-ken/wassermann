@@ -1,4 +1,4 @@
-<p>どんな人がお好み？</p>
+<p>どんな人がタイプ？</p>
 
 <!-- 配列をランダムに並び替えて先頭5つ表示 -->
 <div>
@@ -6,4 +6,4 @@
 <%= link_to chara, characters_select_path(:loc_name => @loc_name, :chara => chara), :class => "btn btn-info" %>
 <% end %>
 </div>
-<%= link_to "別のタイプ", characters_path(:location =>@loc_name), :class => "btn btn-reload" %>
+<%= link_to "別のタイプを表示", characters_path(:location =>@loc_name), :class => "btn" %>
