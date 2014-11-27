@@ -1,24 +1,3 @@
-GIT
-  remote: git://github.com/bricker/redis-store.git
-  revision: 99aa42f876d89d84e66a3a59f31e867a382bbd8a
-  specs:
-    redis-actionpack (3.2.3)
-      actionpack (>= 3.2.3)
-      redis-rack (~> 1.4.0)
-      redis-store (~> 1.1.0)
-    redis-activesupport (3.2.3)
-      activesupport (>= 3.2.3)
-      redis-store (~> 1.1.0)
-    redis-rack (1.4.2)
-      rack (~> 1.5.2)
-      redis-store (~> 1.1.0)
-    redis-rails (3.2.3)
-      redis-actionpack (~> 3.2.3)
-      redis-activesupport (~> 3.2.3)
-      redis-store (~> 1.1.0)
-    redis-store (1.1.3)
-      redis (>= 2.2)
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -42,6 +21,10 @@ GEM
       activemodel (= 4.1.6)
       activesupport (= 4.1.6)
       arel (~> 5.0.0)
+    activerecord-session_store (0.1.0)
+      actionpack (>= 4.0.0, < 5)
+      activerecord (>= 4.0.0, < 5)
+      railties (>= 4.0.0, < 5)
     activesupport (4.1.6)
       i18n (~> 0.6, >= 0.6.9)
       json (~> 1.7, >= 1.7.7)
@@ -117,7 +100,6 @@ GEM
     rake (10.3.2)
     rdoc (4.1.2)
       json (~> 1.4)
-    redis (3.1.0)
     ref (1.0.5)
     rspec-core (3.1.7)
       rspec-support (~> 3.1.0)
@@ -181,6 +163,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  activerecord-session_store
   capybara
   coffee-rails (~> 4.0.0)
   factory_girl_rails
@@ -191,9 +174,6 @@ DEPENDENCIES
   pg
   rails (= 4.1.6)
   rails_12factor
-  redis
-  redis-rails!
-  redis-store!
   rspec-rails
   sass-rails (~> 4.0.3)
   sdoc (~> 0.4.0)
