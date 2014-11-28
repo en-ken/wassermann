@@ -22,7 +22,7 @@ class ReputationsController < ApplicationController
         end
       end
     end
-    session[:reputation] = @test
+    session[:reputation] = @shops
   end
 
   def get_json_data(loc_name)
