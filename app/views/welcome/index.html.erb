@@ -1,10 +1,13 @@
-<div id = "parent">
-  <h1>
-    あいまいランチ
-  </h1>
-  <p>
-    なかなか食べたいものが決められない、<br>
-    そんな人のためのサービスです。
-  </p>
-  <%= link_to 'はじめる。', '/choice', :class => 'btn btn-success star' %>
+
+<div class="location_menu" >
+ <ul> 
+  <li><span class="station_view">東京駅</span>
+　 <ul class="station_list">
+    <% @locations.each do |loc| %>
+    <li><%= loc %></li>
+    <% end %> 
+  </ul>
+  </li>
+ </ul>
+ <p>で、ランチするお店を探す</p>
 </div>
