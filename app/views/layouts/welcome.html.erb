@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
@@ -12,125 +12,82 @@
 		<script src="js/skel.min.js"></script>
 		<script src="js/skel-layers.min.js"></script>
 		<script src="js/init.js"></script>
-		<noscript>
-			<link rel="stylesheet" href="css/skel.css" />
+		<noscript>	
+               	<link rel="stylesheet" href="css/skel.css" />
 			<link rel="stylesheet" href="css/style.css" />
 			<link rel="stylesheet" href="css/style-desktop.css" />
 			<link rel="stylesheet" href="css/style-noscript.css" />
 		</noscript>
+                <link rel="stylesheet" type="text/css" href="css/welcome.css">
 		<!--[if lte IE 8]><link rel="stylesheet" href="css/ie/v8.css" /><![endif]-->
     <title><%= content_for?(:title) ? yield(:title) : "あいまいランチ" %></title>
     <%= csrf_meta_tags %>
 
-    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
-    <!--[if lt IE 9]>
-      <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6.1/html5shiv.js" type="text/javascript"></script>
-    <![endif]-->
-
-    <%#= stylesheet_link_tag "application", :media => "all" %>
-
-    <!-- For third-generation iPad with high-resolution Retina display: -->
-    <!-- Size should be 144 x 144 pixels -->
-    <%= favicon_link_tag 'apple-touch-icon-144x144-precomposed.png', :rel => 'apple-touch-icon-precomposed', :type => 'image/png', :sizes => '144x144' %>
-
-    <!-- For iPhone with high-resolution Retina display: -->
-    <!-- Size should be 114 x 114 pixels -->
-    <%= favicon_link_tag 'apple-touch-icon-114x114-precomposed.png', :rel => 'apple-touch-icon-precomposed', :type => 'image/png', :sizes => '114x114' %>
-
-    <!-- For first- and second-generation iPad: -->
-    <!-- Size should be 72 x 72 pixels -->
-    <%= favicon_link_tag 'apple-touch-icon-72x72-precomposed.png', :rel => 'apple-touch-icon-precomposed', :type => 'image/png', :sizes => '72x72' %>
-
-    <!-- For non-Retina iPhone, iPod Touch, and Android 2.1+ devices: -->
-    <!-- Size should be 57 x 57 pixels -->
-    <%= favicon_link_tag 'apple-touch-icon-precomposed.png', :rel => 'apple-touch-icon-precomposed', :type => 'image/png' %>
-
-    <!-- For all other devices -->
-    <!-- Size should be 32 x 32 pixels -->
-    <%= favicon_link_tag 'favicon.ico', :rel => 'shortcut icon' %>
-
-    <%#= javascript_include_tag "application" %>
   </head>
   <body class="homepage">
-
-    <div id="welcome">
-      <%= yield %>
-    </div>
-
-
-		<!-- Header -->
-			<div id="header">
-
-					<div class="shout">
-						<p class="textR">おとこをえらべ</p>
-						<p class="textL">　ランチをえらべ</p>
-					</div>		
-				<!-- Inner -->
-					<div class="inner">
-						<header>
-							<h1><a href="index.html" id="logo">A<img src="./images/spoon_icon.png"></img>ma<img src="./images/spoon_icon.png"></img> Lunch</a></h1>
-							<p>それは、まったく新しいランチ選びの体験。</p>
-						</header>
-						<footer>
-							<a href="#banner" class="button circled scrolly">START</a>
-						</footer>
-					</div>
-			</div>
-			
-		<!-- Banner -->
-			<section id="banner">
-				<header>
-					<h2>Welcome to <strong>Aimai Lunch !</strong></h2>
-					<p>
-						男性は条件をつけて選ぶことができるのに、ランチはぜんぜん決められない！そんな体験ありませんか？</br>ここでは男性を選ぶような感覚でランチを決めることができます。</br>さぁ、まったく新しいランチ選びを体験してみましょう！
-					</p>
-				</header>
-			</section>
-
+ 	<div id="header">
+	 	<div class="inner">
+			<header>
+			   <h1><a href="index.html" id="logo">A<img src="./images/spoon_icon.png"></img>ma<img src="./images/spoon_icon.png"></img> Lunch</a></h1>
+			   <p>それは、まったく新しいランチ選びの体験。</p>
+			</header>
+			<footer>
+				<a href="#banner" class="button circled scrolly">START</a>
+			</footer>
+		</div>
+	</div>
+	<section id="banner">
+         <header>
+	   <h2>Welcome to <strong>Aimai Lunch !</strong></h2>
+	   <p>男性は条件をつけて選ぶことができるのに、ランチはぜんぜん決められない！</br>そんな経験ありませんか？</br>ここでは男性を選ぶような感覚でランチを決めることができます。</br>さぁ、まったく新しいランチ選びを体験してみましょう！</p>
+	 </header>
+	 	<footer>
+ 			<%= yield %>
+	 	</footer>
+     </section>
 		<!-- Carousel -->
 			<section class="carousel">
-				<div class="reel">
-
-					<article>
-						<a href="/choice" class="image featured"><img src="images/pic01.jpg" alt="" /></a>
-						<header>
-							<h3><a href="">顔でえらぶ</a></h3>
-						</header>
-						<p>おとこは顔がよければ何でもいい！</p>
-						<p class="textS">そんなビジュアル重視のあなたは、写真からランチするお店を決めてみませんか？</p>
-					</article>
+			  <div class="reel">
+			    <article>
+			      <a href="javascript:void(0);" class="image featured"><img src="images/pic01.jpg" alt="" /></a>
+			      <header>
+				<h3><a href="javascript:void(0);">顔でえらぶ</a></h3>
+			      </header>
+			      <p>おとこは顔がよければ何でもいい！</p>
+			      <p class="textS">そんなビジュアル重視のあなたは、写真からランチするお店を決めてみませんか？</p></a>
+		           </article>
+				
+			   <article>
+                   <%= link_to image_tag('pic02.jpg'), {:controller => "characters", :action => "index" }, :class => "image featured choice", :name => "character" %>
+			     <header>
+			       <h3><%= link_to "雰囲気でえらぶ", {:controller => "characters", :action => "index" }, :class => "choice", :name => "character" %></h3>
+			     </header>
+			     <p>いいおとこは雰囲気がいい！</p>
+			     <p class="textS">そんな雰囲気重視のあなたは、好きな雰囲気を選んで、ランチするお店を決めてみませんか？</p>
+			   </article>
+				
+			   <article>
+	         	     <a href="javascript:void(0);"class="image featured"><img src="images/pic03.jpg" alt="" /></a>
+			     <header>
+				<h3><a href="javascript:void(0);">経済力でえらぶ</a></h3>
+			     </header>
+			     <p>おとこの価値は貯金額！</p>
+			     <p class="textS">そんな経済力重視のあなたは、けっこうリッチなランチが好きなんじゃないですか？</p>
+			   </article>
+				
+			　<article>
+			　　<%= link_to image_tag('pic04.jpg'), {:controller => "reputations", :action => "index" }, :class => "image featured spinner choice", :name => "reputation" %>
+   	                    <header>
+			      <h3><%= link_to "評判でえらぶ", {:controller => "reputations", :action => "index" }, :class => "spinner choice", :name => "reputation" %></h3>
+		            </header>
+			    <p>友達がステキな人って言ってたの！</p>
+			    <p class="textS">そんな周囲の評判に左右されちゃうあなたは、お店の評判からランチを決めてみませんか？</p>
+			  </article>
 				
 					<article>
-						<a href="/choice" class="image featured"><img src="images/pic02.jpg" alt="" /></a>
+						<a href="javascript:void(0);" class="image featured"><img src="images/pic05.jpg" alt="" /></a>
 						<header>
-							<h3><a href="/choice">性格でえらぶ</a></h3>
-						</header>
-						<p>性格が合わないと付き合えない！</p>
-						<p class="textS">そんな性格重視のあなたは、好きな性格を選んでランチするお店を決めてみませんか？</p>
-					</article>
-				
-					<article>
-						<a href="/choice" class="image featured"><img src="images/pic03.jpg" alt="" /></a>
-						<header>
-							<h3><a href="/choice">経済力でえらぶ</a></h3>
-						</header>
-						<p>おとこの価値は貯金額！</p>
-						<p class="textS">そんな経済力重視のあなたは、けっこうリッチなランチが好きなんじゃないですか？</p>
-					</article>
-				
-					<article>
-						<a href="/choice" class="image featured"><img src="images/pic04.jpg" alt="" /></a>
-						<header>
-							<h3><a href="/choice">評判でえらぶ</a></h3>
-						</header>
-						<p>友達がステキな人って言ってたの！</p>
-						<p class="textS">そんな周囲の評判に左右されちゃうあなたは、お店の評判からランチを決めてみませんか？</p>
-					</article>
-				
-					<article>
-						<a href="/choice" class="image featured"><img src="images/pic05.jpg" alt="" /></a>
-						<header>
-							<h3><a href="/choice">フィーリングでえらぶ</a></h3>
+							<h3><a href="javascript:void(0);">フィーリングでえらぶ</a></h3>
 						</header>
 						<p>なんかこの人好き！</p>
 						<p class="textS">そんなフィーリング重視のあなたは、直感でランチするお店を選ぶと意外と合うかもしれませんよ？</p>
@@ -140,5 +97,33 @@
     <footer>
       <p>&copy; enPiT BizApp wassermann 2014</p>
     </footer>
+    <script type="text/javascript">
+		$(document).ready(function(){
+		  DD = new Date();
+		  var seconds = DD.getSeconds();
+	          if ( seconds % 2 == 0){
+		    $('#header').css('background-image', "url('./images/header1.png')");
+		  }else{
+	            $('#header').css('background-image', "url('./images/header2.png')");
+		  }
+		});
+
+		$('.station_list li').click(function(){
+			var str = $(this).html();
+			$('.station_view').html(str);
+		});
+	
+		var hrefReset = function(){
+			$("a.choice[name='character']").attr("href","/characters");
+			$("a.choice[name='reputation']").attr("href","/reputations");
+		};
+			
+		$("a.choice").click(function(){
+			hrefReset();
+			var originalHref = $(this).attr("href");
+			$(this).attr("href", originalHref + "?location=" + $(".station_view").html());
+		});
+			
+    </script>
   </body>
 </html>

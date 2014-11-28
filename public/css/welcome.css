@@ -1,0 +1,75 @@
+.location_menu {
+  width: 28%;
+  height: 40px;
+  margin: 0 auto;
+}
+.location_menu ul{
+  margin:0;
+  padding:0;
+  width: 150px;
+  height: 40px;
+  float: left
+}
+.location_menu ul li {
+  list-style: none;
+  margin:0;
+  padding:0;
+  font-size:14px;
+  float: left;
+  position: relative;
+  width: 150px;/*親メニューの幅*/
+  height: 40px;/*親メニューの高さ*/
+  line-height: 40px;
+  color: #4D4D4D;/*親メニューの文字色*/
+  text-align:center;
+  font-weight:bold;
+  cursor: pointer;
+}
+.station_view {
+   display: block;
+   border: 1px solid #ccc;
+   width: 100%;
+   height: 100%;
+}
+.location_menu ul li a {
+  color: #4D4D4D;
+  display: block;
+  text-decoration: none;
+}
+.location_menu ul li:hover, .location_menu ul li a:hover {
+  background:#df7366;/*ホバー時の親メニューの背景色*/
+  color:#fff;/*ホバー時の親メニューの文字色*/
+}
+.location_menu ul li ul {
+  position: absolute;
+  top: 40px;/*親メニューの高さと同じにする*/
+  width: 150px;
+  z-index: 100;
+}
+.location_menu ul li ul li {
+  visibility: hidden;
+  overflow: hidden;
+  width: 150px;/*サブメニューの幅*/
+  height: 0;
+  background:#FFDAD7;/*サブメニューの背景色*/
+}
+.location_menu ul li ul li:hover, .location_menu ul li ul li a:hover {
+  background:#FFAFA9;/*ホバー時のサブメニューの背景色*/
+}
+.location_menu ul li:hover ul li, .location_menu ul li a:hover ul li{
+  visibility: visible;
+  overflow: visible;
+  height:40px;/*サブメニューの高さ*/
+  z-index: 10;
+}
+.location_menu * {
+  -webkit-transition: 0.5s;
+  -moz-transition: 0.5s;
+  -ms-transition: 0.5s;
+  -o-transition: 0.5s;
+  transition: 0.5s;
+}
+.location_menu p{
+   float: left;
+   padding: 6px;
+}
