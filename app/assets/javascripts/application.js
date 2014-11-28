@@ -37,7 +37,11 @@ $(function(){
             top: '50%', // Top position relative to parent
             left: '50%' // Left position relative to parent
           };
-          var spinner = new Spinner(opts).spin();
-          $('body').prepend("<div class='disabled_wall'></div>").append(spinner.el);
+          $(this).spin(opts);
+          $('body').prepend("<div class='disabled_wall'></div>")
+     })
+     $(document).on('page:change', function(){
+       $("a.spinner").spin(false);
+       $("div.disabled_wall").remove();
      })
 });
