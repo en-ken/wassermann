@@ -3,11 +3,14 @@ class ReputationsController < ApplicationController
     #@loc_name = params[:loc_name]
     data = JSON.parse (get_json_data)
     @comment = Array.new
+    @test = Array.new
     for num in 0..14 do
       photo = data["response"][num.to_s]["photo"]
-      shop = Shop.new(photo['shop_name'], photo['shop_url'], photo['comment'], photo['image_url'], '')
+      shop = Shop.new(photo['shop_name'], photo['shop_url'], photo['comment'], photo['image_url']['url_320'], '')
       @comment.push(shop)
+      @test.push(shop)
     end
+    session[:reputation] = @test
   end
 
   def get_json_data

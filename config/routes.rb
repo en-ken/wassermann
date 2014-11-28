@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   get "/characters/select"
   get "/shops" => "shops#index"
   get "/shops/multi" => "shops#multi"
+  get "/shops/single/:number" => "shops#single", :as => "shops_single"
   get "/reputations" => "reputations#index"
 
   #get '/explore' => 'menus#explore'

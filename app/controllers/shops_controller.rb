@@ -49,6 +49,12 @@ class ShopsController < ApplicationController
     end
   end
 
+  def single
+    i = params[:number].to_i
+    @shop = session[:reputation][i]
+    puts @shop.img_url
+  end
+
   #JSONデータを取得する
   def get_json_data(loc_name, freewords='')
     #TODO:エラー処理が必要

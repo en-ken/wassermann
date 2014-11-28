@@ -50,3 +50,5 @@ gem 'rspec-rails', group: [:development, :test]
 gem 'factory_girl_rails', group: [:development, :test]
 gem 'capybara', group: [:development, :test]
 gem 'spinjs-rails'
+
+gem 'activerecord-session_store'

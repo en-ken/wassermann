@@ -5,5 +5,6 @@
 <div class="balloon"><%= @comment[i].comment %></div>
 
 <% url = @comment[i].url %>
-<%= link_to 'このお店でランチする', url, :class => 'btn btn-success reputation', :target => '_blank' %>
+<% shop = @comment[i] %>
+<%= link_to 'このお店でランチする', shops_single_path(:number => i), :class => 'btn btn-success reputation' %>
 
