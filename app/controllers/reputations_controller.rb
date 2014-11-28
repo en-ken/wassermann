@@ -44,8 +44,9 @@ class ReputationsController < ApplicationController
     begin
       return client.get_content(GNAVI_REPT_URL, get_data)
     rescue HTTPClient::BadResponseError => e
+      p e
     rescue HTTPClient::TimeoutError => e
+      p e
     end
   end
-
 end
