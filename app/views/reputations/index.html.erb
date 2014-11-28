@@ -1,10 +1,55 @@
-<% i = 0 %>
-<% while @comment[i].comment.empty? do%>
- <% i = i + 1 %>
-<% end %>
-<div class="balloon"><%= @comment[i].comment %></div>
+<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+  <!--使われないはずだけど一応-->
+  <% if @shops.empty? then %>
+    <h3>付近に店舗が見当たりません。</h3>
+    <%= link_to "戻る" %>
+  <% else %>
 
-<% url = @comment[i].url %>
-<% shop = @comment[i] %>
-<%= link_to 'このお店でランチする', shops_single_path(:number => i), :class => 'btn btn-success reputation' %>
+  <!-- Indicators -->
+  <ol class="carousel-indicators">
+    <% @shops.length.times do |index| %>
+    <li data-target="#carousel-example-generic" data-slide-to="<%= index %>"></li>
+    <% end %>
+  </ol>
 
+  <!-- Wrapper for slides -->
+  <div class="carousel-inner" role="listbox">
+    <% @shops.each do |shop| %>
+    <div class="item">
+      <div class="reputation">
+        <div class="icon">
+          <%= image_tag('reputations/woman0.png') %>
+        </div>
+        <div class="ballon">
+          <div class="box">
+            <%= shop.comment %>
+          </div>
+        </div>
+      </div>
+
+      <div class="carousel-caption">
+        <label><%= link_to 'このお店でランチする', shop.url, :class => 'btn btn-success reputation', :target => '_blank' %></label>
+      </div>
+    </div>
+    <% end %>
+  </div>
+  <% end %>
+  <!-- Controls -->
+  <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
+
+<script>
+$(function(){
+  $(".carousel-indicators li:first").addClass("active");
+  $(".carousel-inner .item:first").addClass("active");
+
+  $(".carousel").carousel();
+});
+</script>
