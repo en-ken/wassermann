@@ -3,10 +3,10 @@
  <ul> 
   <li><span class="station_view">東京駅</span>
 　 <ul class="station_list">
-    <li>渋谷駅</li>
-    <li>恵比寿駅</li>
-    <li>有楽町駅</li>
-   </ul>
+    <% @locations.each do |loc| %>
+    <li><%= loc %></li>
+    <% end %> 
+  </ul>
   </li>
  </ul>
  <p>で、ランチするお店を探す</p>

@@ -108,7 +108,12 @@
 		  }
 		});
 
+		$('.station_view').hover(function(){
+			$('.station_list li').css("display", "block");
+		});
+
 		$('.station_list li').click(function(){
+			$('.station_list li').css("display", "none");
 			var str = $(this).html();
 			$('.station_view').html(str);
 		});
@@ -122,8 +127,7 @@
 			hrefReset();
 			var originalHref = $(this).attr("href");
 			$(this).attr("href", originalHref + "?location=" + $(".station_view").html());
-		});
-			
+		});	
     </script>
   </body>
 </html>
