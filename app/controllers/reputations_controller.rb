@@ -11,9 +11,13 @@ class ReputationsController < ApplicationController
     response.each do |key, value|
       if key == 'total_hit_count'
         count = value
-      elsif key =~ (/[0-9]*/) #keyが数字のとき
-        shop = Shop.new(value['shop_name'], value['shop_url'], value['comment'], value['image_url'], '')
-        if shop.present? #コメントがあれば詰める
+        p count
+      elsif key =~ /[0-9]+/ #keyが数字のとき
+        s = value['photo']
+        shop = Shop.new(s['shop_name'], s['shop_url'], s['comment'], s['image_url'], '')
+        if shop.comment.present? #コメントがあれば詰める
+          p shop.name
+          p shop.url
           @shops.push(shop)
         end
       end

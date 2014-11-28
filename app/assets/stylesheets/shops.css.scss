@@ -1,31 +1,3 @@
 // Place all the styles related to the shops controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-.carousel{
-  margin-right: 0;
-  margin-left: 0;
-  background-color: #ddd;
-  border-color: #ddd;
-  border-width: 1px;
-  border-radius: 4px 4px 0 0;
-  position: relative;
-  padding: 45px 15px 15px;
-  margin: 0 -15px 15px;
-  border-style: solid;
-  .carousel-inner {
-    height: 400px;
-    .item {
-      color: #333;
-      img {
-        height: 280px;
-        max-width: 700px;
-        margin-left: auto;
-        margin-right: auto;
-        display: block;
-      }
-      .carousel-caption {
-       top: 110%;
-      }
-    }
-  }
-}
