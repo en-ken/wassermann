@@ -20,6 +20,10 @@ html, body{
   padding: 0;
 }
 
+.navbar-brand:hover {
+  cursor: pointer;
+}
+
 .disabled_wall {
   position: absolute;
   left: 0;
