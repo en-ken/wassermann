@@ -22,7 +22,7 @@ class ReputationsController < ApplicationController
         end
       end
     end
-    session[:reputation] = @test
+    session[:reputation] = @shops
   end
 
   def get_json_data(loc_name)
@@ -31,7 +31,6 @@ class ReputationsController < ApplicationController
     location = Location.find_by(name: loc_name)
     latitude_degree = location.latitude
     longitude_degree = location.longitude
-
     get_data = {
       'keyid' => key_id,
       'latitude' => latitude_degree,
