@@ -13,3 +13,13 @@
     </div>
   </div>
 </div>
+
+<script>
+$(function(){
+  $(".item img").error(function() {
+    $(this).attr({
+      src: '/images/noimage.png',
+      alt: 'no image'
+    });
+  });
+</script>
