@@ -1,14 +1,25 @@
-<h1><label><%= @loc_name %>近くの</label><label><%= @menu_name %></label>の候補店一覧</h1>
-
-<% if @shops.empty? then %>
-  <h3>付近に店舗が見当たりません。</h3>
-  <%= link_to "戻る", {:controller => "menus", :action => "suggest", :menu => @menu_name}, :class => "btn btn-info" %>
-<% else %>
-<div class="list-group">
-  <% @shops.each do |shop| %>
-    <a href="<%= shop.url %>" class="list-group-item">
-      <h4 class="list-group-item-heading"><%= shop.name %></h4>
-    </a>
-  <% end %>
+<div class="single">
+  <div class="item">
+    <%= link_to image_tag(@shop.img_url, :border => 0, :alt => @shop.name), @shop.url, :target => '_blank' %>
+    <div class="caption">
+      <label><%= link_to @shop.name, @shop.url, :target => '_blank' %></label>
+      <% if @shop.comment.present? %>
+        <label class="keywords"><%= @shop.comment %></label>
+      <% elsif @shop.keyword.present? %>
+        <% @shop.keyword.each do |word| %>
+        <label class="keywords"><%= word %></label>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
 </div>
-<% end %>
+
+<script>
+$(function(){
+  $(".item img").error(function() {
+    $(this).attr({
+      src: '/images/noimage.png',
+      alt: 'no image'
+    });
+  });
+</script>

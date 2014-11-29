@@ -10,7 +10,13 @@ class CharactersController < ApplicationController
 
   #character選択後の遷移
   def select
-    redirect_to shops_multi_url(:loc_name => params[:loc_name], :chara => params[:chara])
+    redirect_to shops_url(:loc_name => params[:loc_name], :chara => params[:chara])
+  end
+
+  def select_random
+    loc_name = params[:location]
+    chara = Character.offset(rand(Character.count)).first
+    redirect_to shops_url(:loc_name => loc_name, :chara => chara.character)
   end
 
   #DBからcharacterのみ取得
