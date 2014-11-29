@@ -14,7 +14,6 @@ class ReputationsController < ApplicationController
         p count
       elsif key =~ /[0-9]+/ #keyが数字のとき
         s = value['photo']
-
         #画像URLの取得
         #ここの画像のサイズどうしよう？ url_1024, url_320, url_240, url_200がある
         img_url = s['image_url']['url_320']
@@ -30,7 +29,7 @@ class ReputationsController < ApplicationController
         end
       end
     end
-    session[:reputation] = @shops
+    session[:shops] = @shops
   end
 
   def get_json_data(loc_name)
