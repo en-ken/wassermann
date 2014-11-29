@@ -6,6 +6,6 @@
       <%= shop.comment %>
     </div>
   </div>
-  <%= link_to 'このお店でランチする', shop.url, :class => 'btn btn-success reputation' %>
-  <%= link_to '別の評判を表示する', reputations_path(:location => @loc_name), :class => 'btn btn-success reputation' %>
+  <%= link_to 'このお店でランチする', shops_single_path(:number => @shops.index(shop)), :class => 'btn btn-success reputation spinner' %>
+  <%= link_to '別の評判を表示する', reputations_path(:location => @loc_name), :class => 'btn btn-success reputation spinner' %>
 </div>
