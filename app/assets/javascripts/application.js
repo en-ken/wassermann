@@ -17,7 +17,6 @@
 //= require spin
 //= require jquery.spin
 $(function(){
-
      $(document).on('click', '.spinner', function(){
           var opts = {
             lines: 13, // The number of lines to draw
