@@ -28,7 +28,7 @@
       </div>
 
       <div class="carousel-caption">
-        <label><%= link_to 'このお店でランチする', shop.url, :class => 'btn btn-success reputation', :target => '_blank' %></label>
+        <label><%= link_to 'このお店でランチする', shops_single_path(:number => @shops.index(shop)), :class => 'btn btn-success reputation' %></label>
       </div>
     </div>
     <% end %>

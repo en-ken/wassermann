@@ -14,7 +14,15 @@ class ReputationsController < ApplicationController
         p count
       elsif key =~ /[0-9]+/ #keyが数字のとき
         s = value['photo']
-        shop = Shop.new(s['shop_name'], s['shop_url'], s['comment'], s['image_url'], '')
+
+        #画像URLの取得
+        #ここの画像のサイズどうしよう？ url_1024, url_320, url_240, url_200がある
+        img_url = s['image_url']['url_320']
+        if img_url.empty?
+          img_url = "/images/noimage.png"
+        end
+
+        shop = Shop.new(s['shop_name'], s['shop_url'], s['comment'], img_url, '')
         if shop.comment.present? #コメントがあれば詰める
           p shop.name
           p shop.url
