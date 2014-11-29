@@ -1,18 +1,11 @@
-  <div >
-    <%= image_tag('reputations/woman0.png', :id => "reputation-icon") %>
-    <% @shops.sort_by{|shop| %>
-      <div class="reputation item">
-        <div class="icon">
-        </div>
-        <div class="ballon">
-          <div class="box">
-            <%= shop.comment %>
-          </div>
-        </div>
-      </div>
-
-    <div class="carousel-caption">
-      <label><%= link_to 'このお店でランチする', shop.url, :class => 'btn btn-success reputation' %></label>
+<div>
+  <%= image_tag('reputations/woman0.png', :id => "reputation-icon") %>
+  <div>
+    <% shop = @shops.shuffle[0] %>
+    <div class="balloon">
+      <%= shop.comment %>
     </div>
-    <% } %>
   </div>
+  <%= link_to 'このお店でランチする', shop.url, :class => 'btn btn-success reputation' %>
+  <%= link_to '別の評判を表示する', reputations_path(:location => @loc_name), :class => 'btn btn-success reputation' %>
+</div>
