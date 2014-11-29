@@ -40,6 +40,53 @@ footer {
   z-index: 99;
 }
 
+.carousel{
+  margin-right: 0;
+  margin-left: 0;
+  background-color: #ddd;
+  border-color: #ddd;
+  border-width: 1px;
+  border-radius: 4px 4px 0 0;
+  position: relative;
+  margin: 0 -15px 15px;
+  border-style: solid;
+  .catoursel-indicators {
+    bottom: 10px !important;
+  }
+  .carousel-inner {
+    height: 400px;
+    .item {
+      color: #333;
+      img {
+        height: 280px;
+        max-width: 700px;
+        margin-left: auto;
+        margin-right: auto;
+        display: block;
+      }
+      .carousel-caption {
+       top: 100%;
+       label {
+         display: block;
+       }
+       .keywords {
+         display: inline;
+       }
+      }
+    }
+  }
+  .glyphicon label{
+    font-family: 'Glyphicons Halflings';
+    position: absolute;
+    top: 50%;
+    font-size: 60px;
+    margin-top: -15px;
+  }
+  .glyphicon label:hover{
+    cursor: pointer;
+  }
+}
+/*
 .balloon {
   position: relative;
   background: #ccc;
@@ -59,7 +106,7 @@ footer {
   background: #fff;
   bottom: -20px;
   left: 50px;
-} 
+}
 .balloon:before {
   content: '';
   position: absolute;
@@ -74,6 +121,7 @@ footer {
 .btn.reputation {
   margin-top: 60px;
 }
+*/
 
 ul[role='location'] li{
   padding: 3px 20px;
@@ -97,7 +145,4 @@ ul[role='location'] li:focus {
   outline: thin dotted #333;
   outline: 5px auto -webkit-focus-ring-color;
   outline-offset: -2px;
-}
-#redirect_root:hover{
-  cursor: pointer;
 }

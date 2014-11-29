@@ -1,55 +1,6 @@
 // Place all the styles related to the shops controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-h1 {
-  text-align: center;
-}
-.carousel{
-  margin-right: 0;
-  margin-left: 0;
-  background-color: #ddd;
-  border-color: #ddd;
-  border-width: 1px;
-  border-radius: 4px 4px 0 0;
-  position: relative;
-  margin: 0 -15px 15px;
-  border-style: solid;
-  .catoursel-indicators {
-    bottom: 10px !important;
-  }
-  .carousel-inner {
-    height: 400px;
-    .item {
-      color: #333;
-      img {
-        height: 280px;
-        max-width: 700px;
-        margin-left: auto;
-        margin-right: auto;
-        display: block;
-      }
-      .carousel-caption {
-       top: 100%;
-       label {
-         display: block;
-       }
-       .keywords {
-         display: inline;
-       }
-      }
-    }
-  }
-  .glyphicon label{
-    font-family: 'Glyphicons Halflings';
-    position: absolute;
-    top: 50%;
-    font-size: 60px;
-    margin-top: -15px;
-  }
-  .glyphicon label:hover{
-    cursor: pointer;
-  }
-}
 .single {
   text-align: center;
   height: 400px;
