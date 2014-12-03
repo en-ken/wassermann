@@ -19,9 +19,15 @@ html, body{
   margin: 0;
   padding: 0;
 }
-.img-responsive{
+#redirect_root{
+	position:absolute;
+	top:100px;
+	left:670px;
+	font-size: 25px;
 }
-
+#redirect_root:hover{
+	cursor: pointer;
+}
 .disabled_wall {
   position: absolute;
   left: 0;
@@ -46,11 +52,6 @@ html, body{
 	top: 50%;
 	left: 50%;
 	border-radius: 100%;
-	background: rgba(52, 27, 43, 0.5);
-	color: white;
+	color: green;
 	padding: 60px
-}
-
-#reputation-icon {
-  height: 280px;
 }
