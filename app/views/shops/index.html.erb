@@ -1,8 +1,11 @@
 <div class="single">
+  <% if @chara.present? %>
+  <p><label><%= @loc_name %></label>近くで<label>「<%= @chara %>」</label>な人をおすすめします！<p>
+  <% end %>
   <div class="item">
     <%= link_to image_tag(@shop.img_url, :border => 0, :alt => @shop.name), @shop.url, :target => '_blank' %>
     <div class="caption">
-      <label><%= link_to @shop.name, @shop.url, :target => '_blank' %></label>
+      <label id="shop_name"><%= link_to @shop.name, @shop.url, :target => '_blank' %></label>
       <% if @shop.comment.present? %>
         <label class="keywords"><%= @shop.comment %></label>
       <% elsif @shop.keyword.present? %>
