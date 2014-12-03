@@ -2,78 +2,16 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+#comment {
+  position: relative;
+  top: 30%;
+  font-size: 2em;
+}
+
 .reputation {
   width: 90%;
   display: table;
   margin:0 auto;
-  .icon {
-    width: 100px;
-    position: relative;
-    display: table-cell; //横並びに表示するための設定
-    vertical-align: middle;
-    img
-    {
-      border: none;
-      background-color: transparent;
-    }
-  }
-}
-
-
-.balloon {
   position: relative;
-  background: #ccc;
-  height: 120px;
-  width: 460px;
-  margin-bottom: 20px;
-  border-radius: 50px;
-  padding: 21px
-}
-.balloon:after {
-  content: '';
-  position: absolute;
-  height: 50px;
-  width: 50px;
-  border-radius: 25px;
-  z-index: -1;
-  background: #fff;
-  bottom: -20px;
-  left: 50px;
-} 
-.balloon:before {
-  content: '';
-  position: absolute;
-  height: 50px;
-  width: 50px;
-  border-radius: 25px;
-  z-index: -1;
-  background: #ccc;
-  bottom: -15px;
-  left: 35px;
-}
-
-.box {
-  position: relative;
-  background: #fff;
-  width: 90%;
-  margin-bottom: 20px;
-  padding: 5px;
-  &:before,
-  &:after {
-    content: '';
-    position: absolute;
-    display: block;
-  }
-  &:after{
-    top: 10px;
-    left: -9px;
-    border-top: 5px solid transparent;
-    border-right: 10px solid #fff;
-    border-bottom: 5px solid transparent;
-  }
-}
-
-.btn.reputation{
-  width: 30%;
-  margin:0 auto;
+  top: 80%;
 }
