@@ -49,13 +49,11 @@ class Shop
 
         shop = Shop.new(s['shop_name'], s['shop_url'], s['comment'], img_url, '')
         if shop.comment.present? #コメントがあれば詰める
-          p shop.name
-          p shop.url
-          p shop.comment
           shops.push(shop)
         end
       end
     end
+    p shops.length
     return shops
   end
 
@@ -95,6 +93,7 @@ class Shop
       shop = Shop.new(rest['name'], rest['url'], rest['pr']['short'], img_url, keywords)
       shops.push(shop)
     end
+    p shops.length
     return shops
   end
 
