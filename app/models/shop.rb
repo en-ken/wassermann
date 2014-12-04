@@ -23,7 +23,7 @@ class Shop
 
   #口コミAPIを使用して店リストを取得
   #デフォルトのrange=3は1000m範囲
-  def self.shops_by_rept_api(loc_name, range = 3)
+  def self.search_shops_from_rept_api(loc_name, range = 3)
     data = JSON.parse (json_from_rept_api(loc_name, range))
 
     if data['error'] then
@@ -59,7 +59,7 @@ class Shop
 
   #レストランAPIを使用して店リストを取得
   #デフォルトのrange=3は1000m範囲
-  def self.shops_by_rest_api(loc_name, freewords='', range=3)
+  def self.search_shops_from_rest_api(loc_name, freewords='', range=3)
     data = JSON.parse (json_from_rest_api(loc_name, freewords, range))
 
     if data['error'] then
