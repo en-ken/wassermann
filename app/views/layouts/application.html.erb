@@ -13,18 +13,17 @@
 </head>
 
 <body>
-  <img src="/images/bg02.jpg" class="img-responsive"></img>
-  <a id="redirect_root" class="navbar-brand" >Aimai Lunch</a>
+  <img src="/images/bg03.png" class="img-responsive"></img>
   <div class="main_content text-center">
     <%= bootstrap_flash %>
     <%= yield %>
   </div>
-
+  <div id="redirect_root" title="Topへ戻る"></div>
+		
   <script type="text/javascript">
-  $('#redirect_root').click(function() {
-    $('head').append('<meta http-equiv="refresh" content="0; URL=/">');
-  });
+    $('#redirect_root').click(function() {  
+      $('head').append('<meta http-equiv="refresh" content="0; URL=/">');
+    });  
   </script>
-
 </body>
 </html>
