@@ -1,5 +1,5 @@
 .location_menu {
-  width: 28%;
+  width: 30%;
   height: 60px;
   margin: 0 auto;
 }
@@ -71,6 +71,6 @@
 }
 .location_menu p{
    float: left;
-   padding: 6px;
-   width: 300%;
+   padding-top: 10px;
+   width:200px;
 }
