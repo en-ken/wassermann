@@ -12,6 +12,7 @@
 *= require_self
 *= require_tree .
 */
+@import "mixins";
 
 html, body{
   height: 100%;
@@ -20,24 +21,49 @@ html, body{
   padding: 0;
 }
 
-.navbar-brand:hover {
-  cursor: pointer;
+.navbar-brand{
+  @include hover;
 }
 
-#redirect_root{
-	position: absolute;
-	bottom: -75px;
-	width: 35px;
-	height: 30px;
-	margin: 0 46%;
-	font-size: 25px;
-	background: url('/images/home_icon.png') no-repeat top left;
-	opacity: 0.5;
+body{
+  /* 画像ファイルの指定 */
+  background-image: url(/images/bg03.png);
+
+  /* 画像を常に天地左右の中央に配置 */
+  background-position: center center;
+
+  /* 画像をタイル状に繰り返し表示しない */
+  background-repeat: no-repeat;
+
+  /* コンテンツの高さが画像の高さより大きい時、動かないように固定 */
+  background-attachment: fixed;
+
+  /* 表示するコンテナの大きさに基づいて、背景画像を調整 */
+  background-size: cover;
+
+  /* 背景画像が読み込まれる前に表示される背景のカラー */
+  background-color: #464646;
 }
-#redirect_root:hover{
-	cursor: pointer;
-	opacity: 0.8;
+
+.btn-home{
+  @include btn-icon('/images/home_icon.png');
+  @include horizontal-centering;
+  bottom: 20px; //下からの距離だけ指定
 }
+
+.main-content {
+  @include virtical-centering;
+  @include horizontal-centering;
+  width: 40%;
+  height: 48%;
+}
+
+//スピナー
+div.spinner {
+  position: fixed !important;
+}
+
+//スピナー時の操作無効化用の壁
 .disabled_wall {
   position: absolute;
   left: 0;
@@ -48,39 +74,22 @@ html, body{
   background: #000;
   -ms-filter: "alpha(opacity=40)";
   filter: alpha(opacity=40);
-  opacity: 0;
+  opacity: 0.4;
+  z-index: 99;
+}
+/*
+.disabled_wall {
+  position: absolute;
+  left: 0;
+  top: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: #ffff;
+  -ms-filter: "alpha(opacity=40)";
+  filter: alpha(opacity=40);
+  opacity: 50;
   z-index: 99;
 }
 
-.main_content {
-	text-align: center;
-	width: 510px;
-	height: 510px;
-	margin-left: -239px;
-	margin-top: -170px;
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	border-radius: 100%;
-	color: green;
-	padding: 60px;
-}
-.btn_reload { 
-  display: block; 
-	font-size: 20px;
-	background: url('/images/reload_icon.png') no-repeat top left;
-	width: 35px;
-	height: 30px; 
-	opacity: 0.5; 
-	margin: 0 58%;
-}     
-.btn_reload:hover {
-	cursor: pointer;
-	opacity: 0.8; 
-}
-div.spinner {
-	position: fixed !important;
-}
-div.spinner{
-	position: fixed!important;
-}
+*/

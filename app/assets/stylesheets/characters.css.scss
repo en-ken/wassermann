@@ -3,20 +3,20 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .explation {
-	color: black;
-	font-size: 22px;
+  color: black;
+  font-size: 22px;
 }
+
 #characters {
-	margin-bottom: 240px;
-}
-#characters .btn {
-	color: green;
-	display: block;
-	border: 1px solid green;
-	margin: 33px;
-	font-size: 34px;
-}
-#characters .btn:hover {
-	color: #fff;
-	background-color: green;
+  .btn{
+    color: green;
+    display: block;
+    border: 1px solid green;
+    margin: 33px;
+    font-size: 34px;
+  }
+  &:hover{
+    color: #fff;
+    background-color: green;
+  }
 }

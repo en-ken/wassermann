@@ -2,8 +2,8 @@
 <h1>今日はラーメン二郎にでも行きなさい。</h1>
 <% else %>
 <% shop = @shops.shuffle[0] %>
-<div id="comment">
+<div class="comment">
   <%= shop.comment %>
 </div>
-<%= link_to 'このお店でランチする', shops_path(:number => @shops.index(shop)), :class => 'btn btn-success reputation spinner' %>
-<%= link_to '', reputations_path(:location => @loc_name), :class => 'spinner btn_reload', :title => "別の評判を表示する" %>
+<%= link_to '', reputations_path(:location => @loc_name), :class => 'spinner btn-reload', :title => "別の評判を表示する" %>
+<%= link_to '', shops_path(:number => @shops.index(shop)), :class => 'spinner btn-determine', :title => "このお店でランチする" %>

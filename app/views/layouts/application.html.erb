@@ -12,21 +12,21 @@
   <%= javascript_include_tag "application" %>
 </head>
 
-	<body>
-		<img src="/images/bg03.png" class="img-responsive"></img>
-		<div class="main_content text-center">
-			<%= bootstrap_flash %>
-			<%= yield %>
-		</div>
-		<div id="redirect_root" title="Topへ戻る"></div>
-		
-		<script type="text/javascript">
-			$('#redirect_root').click(function() {  
-				$('head').append('<meta http-equiv="refresh" content="0; URL=/">');
-			});  
-		</script>
-	
-	</body>
+<body>
+  <!--<img src="/images/bg03.png" class="bg-img"></img>-->
+  <div class="main-content">
+    <%= bootstrap_flash %>
+    <%= yield %>
+  </div>
+  <div class="btn-home" title="Topへ戻る"></div>
+
+  <script type="text/javascript">
+  $('.btn-home').click(function() {
+    $('head').append('<meta http-equiv="refresh" content="0; URL=/">');
+  });
+  </script>
+
+</body>
 
 </body>
 </html>
