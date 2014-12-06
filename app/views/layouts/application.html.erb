@@ -14,19 +14,17 @@
 
 	<body>
 		<img src="/images/bg02.jpg" class="img-responsive"></img>
-		<a id="redirect_root" class="navbar-brand" >Aimai Lunch</a>	
+		<a id="redirect_root" class="navbar-brand" >Aimai Lunch</a>
 		<div class="main_content text-center">
 			<%= bootstrap_flash %>
 			<%= yield %>
 		</div>
 
 		<script type="text/javascript">
-			$('#redirect_root').click(function() {  
+			$('#redirect_root').click(function() {
 				$('head').append('<meta http-equiv="refresh" content="0; URL=/">');
-			});  
+			});
 		</script>
-	
+
 	</body>
-
 </html>
-
