@@ -1,17 +1,17 @@
 /*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
- * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any styles
- * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
- * file per style scope.
- *= require_self
- *= require_tree .
- */
+* This is a manifest file that'll be compiled into application.css, which will include all the files
+* listed below.
+*
+* Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+* or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+*
+* You're free to add application-wide styles to this file and they'll appear at the bottom of the
+* compiled file so the styles you add here take precedence over styles defined in any styles
+* defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+* file per style scope.
+*= require_self
+*= require_tree .
+*/
 
 html, body{
   height: 100%;
@@ -24,6 +24,16 @@ html, body{
   cursor: pointer;
 }
 
+#redirect_root{
+  position: absolute;
+  top: 100px;
+  width: 100%;
+  margin: 0 46%;
+  font-size: 25px;
+}
+#redirect_root:hover{
+  cursor: pointer;
+}
 .disabled_wall {
   position: absolute;
   left: 0;
@@ -38,49 +48,16 @@ html, body{
   z-index: 99;
 }
 
-.carousel{
-  margin-right: 0;
-  margin-left: 0;
-  background-color: #ddd;
-  border-color: #ddd;
-  border-width: 1px;
-  border-radius: 4px 4px 0 0;
-  position: relative;
-  margin: 0 -15px 15px;
-  border-style: solid;
-  .catoursel-indicators {
-    bottom: 10px !important;
-  }
-  .carousel-inner {
-    height: 400px;
-    .item {
-      color: #333;
-      img {
-        height: 280px;
-        max-width: 700px;
-        margin-left: auto;
-        margin-right: auto;
-        display: block;
-      }
-      .carousel-caption {
-       top: 100%;
-       label {
-         display: block;
-       }
-       .keywords {
-         display: inline;
-       }
-      }
-    }
-  }
-  .glyphicon label{
-    font-family: 'Glyphicons Halflings';
-    position: absolute;
-    top: 50%;
-    font-size: 60px;
-    margin-top: -15px;
-  }
-  .glyphicon label:hover{
-    cursor: pointer;
-  }
+.main_content {
+  text-align: center;
+  width: 510px;
+  height: 510px;
+  margin-left: -239px;
+  margin-top: -170px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  border-radius: 100%;
+  color: green;
+  padding: 60px
 }

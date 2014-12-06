@@ -1,55 +1,6 @@
-<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
-  <!--使われないはずだけど一応-->
-  <% if @shops.empty? then %>
-    <h3>付近に店舗が見当たりません。</h3>
-    <%= link_to "戻る" %>
-  <% else %>
-
-  <!-- Indicators -->
-  <ol class="carousel-indicators">
-    <% @shops.length.times do |index| %>
-    <li data-target="#carousel-example-generic" data-slide-to="<%= index %>"></li>
-    <% end %>
-  </ol>
-
-  <!-- Wrapper for slides -->
-  <div class="carousel-inner" role="listbox">
-    <% @shops.each do |shop| %>
-    <div class="item">
-      <div class="reputation">
-        <div class="icon">
-          <%= image_tag('reputations/woman0.png') %>
-        </div>
-        <div class="ballon">
-          <div class="box">
-            <%= shop.comment %>
-          </div>
-        </div>
-      </div>
-
-      <div class="carousel-caption">
-        <label><%= link_to 'このお店でランチする', shops_single_path(:number => @shops.index(shop)), :class => 'btn btn-success reputation' %></label>
-      </div>
-    </div>
-    <% end %>
-  </div>
-  <% end %>
-  <!-- Controls -->
-  <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
-    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-    <span class="sr-only">Previous</span>
-  </a>
-  <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
-    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-    <span class="sr-only">Next</span>
-  </a>
+<% shop = @shops.shuffle[0] %>
+<div id="comment">
+  <%= shop.comment %>
 </div>
-
-<script>
-$(function(){
-  $(".carousel-indicators li:first").addClass("active");
-  $(".carousel-inner .item:first").addClass("active");
-
-  $(".carousel").carousel();
-});
-</script>
+<%= link_to 'このお店でランチする', shops_path(:number => @shops.index(shop)), :class => 'btn btn-success reputation spinner' %>
+<%= link_to '別の評判を表示する', reputations_path(:location => @loc_name), :class => 'btn btn-success reputation spinner' %>

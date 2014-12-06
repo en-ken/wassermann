@@ -1,9 +1,9 @@
-<p>どんな人がタイプ？</p>
+<p class="explation">好きな雰囲気を選んでください。</p>
 
 <!-- 配列をランダムに並び替えて先頭5つ表示 -->
-<div>
-<% @charas.sort_by{rand}[0..4].each do |chara| %>
-<%= link_to chara, characters_select_path(:loc_name => @loc_name, :chara => chara), :class => "btn btn-info spinner" %>
+<div id="characters">
+<% @charas.sort_by{rand}[0..2].each do |chara| %>
+<%= link_to chara, characters_select_path(:loc_name => @loc_name, :chara => chara), :class => "btn spinner" %>
 <% end %>
 </div>
-<%= link_to "別のタイプを表示", characters_path(:location =>@loc_name) %>
+<%= link_to "別のタイプを表示", characters_path(:location =>@loc_name), :class => "btn_reload" %>

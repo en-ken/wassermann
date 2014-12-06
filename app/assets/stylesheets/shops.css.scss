@@ -4,7 +4,10 @@
 .single {
   text-align: center;
   height: 400px;
+  font-size: 17px;
   .item {
+    width: 400px;
+    overflow: hidden;
     color: #333;
     img {
       height: 280px;
@@ -17,6 +20,9 @@
       top: 100%;
       label {
         display: block;
+      }
+      #shop_name {
+        font-size: 20px;
       }
       .keywords {
         display: inline;
