@@ -25,14 +25,18 @@ html, body{
 }
 
 #redirect_root{
-  position: absolute;
-  top: 100px;
-  width: 100%;
-  margin: 0 46%;
-  font-size: 25px;
+	position: absolute;
+	bottom: -75px;
+	width: 35px;
+	height: 30px;
+	margin: 0 46%;
+	font-size: 25px;
+	background: url('/images/home_icon.png') no-repeat top left;
+	opacity: 0.5;
 }
 #redirect_root:hover{
-  cursor: pointer;
+	cursor: pointer;
+	opacity: 0.8;
 }
 .disabled_wall {
   position: absolute;
@@ -49,17 +53,33 @@ html, body{
 }
 
 .main_content {
-  text-align: center;
-  width: 510px;
-  height: 510px;
-  margin-left: -239px;
-  margin-top: -170px;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  border-radius: 100%;
-  color: green;
-  padding: 60px
+	text-align: center;
+	width: 510px;
+	height: 510px;
+	margin-left: -239px;
+	margin-top: -170px;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	border-radius: 100%;
+	color: green;
+	padding: 60px;
+}
+.btn_reload { 
+  display: block; 
+	font-size: 20px;
+	background: url('/images/reload_icon.png') no-repeat top left;
+	width: 35px;
+	height: 30px; 
+	opacity: 0.5; 
+	margin: 0 58%;
+}     
+.btn_reload:hover {
+	cursor: pointer;
+	opacity: 0.8; 
+}
+div.spinner {
+	position: fixed !important;
 }
 div.spinner{
 	position: fixed!important;
