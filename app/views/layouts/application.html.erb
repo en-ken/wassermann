@@ -1,30 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
-	<!-- This is application template -->
-	<head>
-		<meta charset="utf-8">
-		<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title><%= content_for?(:title) ? yield(:title) : "Aimai Lunch" %></title>
-		<%= csrf_meta_tags %>
-		<%= stylesheet_link_tag "application", :media => "all" %>
-		<%= favicon_link_tag 'favicon.ico', :rel => 'shortcut icon' %>
-		<%= javascript_include_tag "application" %>
-	</head>
+<!-- This is application template -->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= content_for?(:title) ? yield(:title) : "Aimai Lunch" %></title>
+  <%= csrf_meta_tags %>
+  <%= stylesheet_link_tag "application", :media => "all" %>
+  <%= favicon_link_tag 'favicon.ico', :rel => 'shortcut icon' %>
+  <%= javascript_include_tag "application" %>
+</head>
 
-	<body>
-		<img src="/images/bg02.jpg" class="img-responsive"></img>
-		<a id="redirect_root" class="navbar-brand" >Aimai Lunch</a>
-		<div class="main_content text-center">
-			<%= bootstrap_flash %>
-			<%= yield %>
-		</div>
+<body>
+  <img src="/images/bg02.jpg" class="img-responsive"></img>
+  <a id="redirect_root" class="navbar-brand" >Aimai Lunch</a>
+  <div class="main_content text-center">
+    <%= bootstrap_flash %>
+    <%= yield %>
+  </div>
 
-		<script type="text/javascript">
-			$('#redirect_root').click(function() {
-				$('head').append('<meta http-equiv="refresh" content="0; URL=/">');
-			});
-		</script>
+  <script type="text/javascript">
+  $('#redirect_root').click(function() {
+    $('head').append('<meta http-equiv="refresh" content="0; URL=/">');
+  });
+  </script>
 
-	</body>
+</body>
 </html>
