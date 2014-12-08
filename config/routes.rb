@@ -6,8 +6,8 @@ Rails.application.routes.draw do
   get "/characters/select_random"
   get "/reputations" => "reputations#index"
   get "/looks" => "looks#index"
-	get "looks/select"
-	get "/shops" => "shops#index"
+  get "looks/select"
+  get "/shops" => "shops#index"
 
   #get '/explore' => 'menus#explore'
   #get '/suggest' => 'menus#suggest'

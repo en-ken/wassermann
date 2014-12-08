@@ -1,0 +1,7 @@
+<p class="explation">こんな人はどう？</p>
+
+<% looks = @looks.shuffle[0] %>
+<div id="looks">
+<%= link_to looks, looks_select_path(:loc_name => @loc_name), :class => "btn spinner" %>
+</div>
+<%= link_to "別の人を表示", looks_path(:location =>@loc_name), :class => "btn_reload" %>
