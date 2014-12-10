@@ -6,13 +6,13 @@ class LooksController < ApplicationController
 	#「雰囲気で選ぶ」選択後の処理
 	def index
 		@loc_name = params[:location]
-		@looks = get_img_urls
+		@looks_img = get_img_urls
 	end
 
 	#雰囲気選択後の遷移
 	def select
-		@freewords = get_freewords
-		redirect_to shops_url(:loc_name => params[:loc_name], :freewords => params[:freewords])
+		@freewords = get_freewords(params[:img_url])
+		redirect_to shops_url(:loc_name => params[:location], :freewords => @freewords)
 	end
 	
 	private #===== 以下プライベートメソッド =====
@@ -20,10 +20,10 @@ class LooksController < ApplicationController
 	#DBからimg_urlを全て取得
 	def get_img_urls
 		return Looks.pluck(:img_url)
-	end
+  end
 
-	def get_freewords
-		looks = Looks.find_by(looks:img_rul)
+	def get_freewords(img_url)
+		looks = Looks.find_by(img_url:img_url)
 		return looks.freewords 
 	end
 
