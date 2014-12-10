@@ -2,6 +2,15 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.description {
+  position: relative;
+  top: -120px;
+  p {
+    color: #ff7373;
+    font-size: 21px;
+  }
+}
+
 #comment {
   position: relative;
   top: 30%;
