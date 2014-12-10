@@ -1,4 +1,7 @@
 <div class="single">
+  <% if @shop.nil? %>
+  <h1>あなたに合う人はいないみたい…他の条件で探してみて…</h1>
+  <% else %>
   <% if @chara.present? %>
   <p><label><%= @loc_name %></label>近くで<label>「<%= @chara %>」</label>な人をおすすめします！<p>
   <% end %>
@@ -15,6 +18,7 @@
       <% end %>
     </div>
   </div>
+  <% end %>
 </div>
 
 <script>

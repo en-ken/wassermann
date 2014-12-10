@@ -13,7 +13,11 @@ class ShopsController < ApplicationController
       freewords = get_freewords(@chara)
 
       shops = Shop.search_shops_from_rest_api(@loc_name, freewords)
-      @shop = shops[rand(shops.length)]
+      if shops.blank?
+        @shop = nil
+      else
+        @shop = shops[rand(shops.length)]
+      end
     end
   end
 
