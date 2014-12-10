@@ -4,6 +4,6 @@
 <div id="looks">
 <%= link_to image_tag(looks_img) %>
 </div>
-<%= link_to 'この人にする', looks_select_path(:location => @loc_name,:img_url => looks_img), :class => 'btn btn-success spinner' %>
+<%= link_to 'タイプ！', looks_select_path(:location => @loc_name,:img_url => looks_img), :class => 'btn btn-success spinner' %>
 <%= link_to "別の人を表示", looks_path(:location =>@loc_name), :class => "btn_reload" %>
 
