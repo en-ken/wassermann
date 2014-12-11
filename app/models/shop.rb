@@ -34,10 +34,11 @@ class Shop
 
     shops = Array.new
     pages = 0
+    count = 0
     data['response'].each do |key, value|
       if key == 'total_hit_count'
-        pages = value.to_i % 50 + 1 #ページ数を算出
-        p pages
+        count = value.to_i
+        pages = count / 50 + 1 #ページ数を算出
       elsif key =~ /[0-9]+/ #keyが数字のとき
         s = value['photo']
         #画像URLの取得
@@ -68,36 +69,48 @@ class Shop
       return nil
     end
 
-    pages = data['total_hit_count'].to_i % 50 + 1 #ページ数を算出
-    p pages
+    count = data['total_hit_count'].to_i
+    pages = count / 50 + 1 #ページ数を算出
 
     shops = Array.new
-    data['rest'].each do |rest|
-      img_url = ''
-      img_url1 = rest['image_url']['shop_image1']
-      img_url2 = rest['image_url']['shop_image2']
-      if img_url1.present?
-        img_url = img_url1
-      elsif img_url2.present?
-        img_url = img_url2
-      else
-        next
+    if count == 1
+      unless (shop = shop_from_rest(data['rest'])) == nil
+        shops.push(shop)
       end
-
-      keywords = rest['code']['category_name_s']
-      keywords.delete_if {
-        |word| word.is_a? Hash
-      }
-      p keywords
-
-      shop = Shop.new(rest['name'], rest['url'], rest['pr']['short'], img_url, keywords)
-      shops.push(shop)
+      p shops.length
+      return shops
     end
-    p shops.length
+
+    data['rest'].each do |rest|
+      unless (shop = shop_from_rest(rest)) == nil
+        shops.push(shop)
+      end
+    end
     return shops
   end
 
   private #===== 以下プライベートメソッド =====
+
+  def self.shop_from_rest(rest)
+    p rest
+    img_url = ''
+    img_url1 = rest['image_url']['shop_image1']
+    img_url2 = rest['image_url']['shop_image2']
+    if img_url1.present?
+      img_url = img_url1
+    elsif img_url2.present?
+      img_url = img_url2
+    else
+      return nil;
+    end
+
+    keywords = rest['code']['category_name_s']
+    keywords.delete_if {
+      |word| word.is_a? Hash
+    }
+
+    return Shop.new(rest['name'], rest['url'], rest['pr']['short'], img_url, keywords)
+  end
 
   #口コミAPIからJSON型データを取得する
   def self.json_from_rept_api(loc_name, range, offset_page)
