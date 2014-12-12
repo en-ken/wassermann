@@ -1,25 +1,37 @@
 // Place all the styles related to the Characters controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+@import "mixins";
 
-.explation {
-	color: black;
-	font-size: 22px;
-}
+
 #characters {
-	margin-bottom: 220px;
+  position: relative;
+  height: 65%;
+  .btn{
+    color: green;
+    border: 1px solid green;
+    margin: 3%;
+    display: block;
+
+    @media only screen and (max-width:767px){
+      font-size: 20px;
+    }
+    @media only screen and (min-width:768px) and (max-width:1199px){
+      font-size: 28px;
+    }
+    @media only screen and (min-width:1200px){
+      font-size: 34px;
+    }
+
+    &:hover{
+      color: #fff;
+      background-color: green;
+    }
+  }
 }
-#characters .btn {
-	color: green;
-	display: block;
-	border: 1px solid green;
-	margin: 33px;
-	font-size: 34px;
-}
-#characters .btn:hover {
-	color: #fff;
-	background-color: green;
-}
-.btn_reload {
-	font-size: 20px;
+
+.btn-reload-chara {
+  @include horizontal-centering;
+  @include btn-icon('/images/reload.png');
+  bottom: 0;
 }

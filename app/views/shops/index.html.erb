@@ -3,10 +3,13 @@
   <h1>あなたに合う人はいないみたい…他の条件で探してみて…</h1>
   <% else %>
   <% if @chara.present? %>
-  <p><label><%= @loc_name %></label>近くで<label>「<%= @chara %>」</label>な人をおすすめします！<p>
+  <p>
+    <label><%= @loc_name %></label>近くで
+    <label>「<%= @chara %>」</label>な人をおすすめします！
+  </p>
   <% end %>
   <div class="item">
-    <%= link_to image_tag(@shop.img_url, :border => 0, :alt => @shop.name), @shop.url, :target => '_blank' %>
+    <%= link_to image_tag(@shop.img_url, :class => 'img-thumbnail', :border => 0, :alt => @shop.name), @shop.url, :target => '_blank' %>
     <div class="caption">
       <label id="shop_name"><%= link_to @shop.name, @shop.url, :target => '_blank' %></label>
       <% if @shop.comment.present? %>
@@ -30,4 +33,27 @@ $(function(){
     });
   });
 });
+
+
+<!--画像のサイズがうまく収まるようにする -->
+var resizeImg = function(){
+  var ww = $(window).width();
+  var wh = $(window).height();
+  var size = Math.max(ww * 0.3, wh * 0.44); <!--皿のサイズの計算-->
+
+  var imgW = $(".single .item img").width();
+  var imgH = $(".single .item img").height();
+
+  if(imgW >= imgH){
+    $(".single .item img").css('max-width', size+'px');
+    $(".single .item img").css('height', 'auto');
+  }else{
+    $(".single .item img").css('max-height', size+'px');
+    $(".single .item img").css('width', 'auto');
+  }
+}
+
+resizeImg();
+$(window).resize(resizeImg);
+
 </script>

@@ -1,17 +1,26 @@
 // Place all the styles related to the reputations controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+@import "mixins";
 
-#comment {
+.comment {
   position: relative;
-  top: 30%;
+  height:85%;
+  overflow: scroll;
+  color:rgb(128,89,4);
   font-size: 2em;
 }
 
-.reputation {
-  width: 90%;
-  display: table;
-  margin:0 auto;
-  position: relative;
-  top: 80%;
+.btn-reload-rep {
+  @include btn-icon('/images/reload.png');
+  left: 33%;
+  right: 62%;
+  bottom: 0;
+}
+
+.btn-select-rep {
+  @include btn-icon('/images/determine.png');
+  left: 60%;
+  right: 35%;
+  bottom: 0;
 }

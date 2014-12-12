@@ -1,4 +1,4 @@
-<p class="explation">好きな雰囲気を選んでください。</p>
+<p class="explanation">好きな雰囲気を選んでください。</p>
 
 <!-- 配列をランダムに並び替えて先頭5つ表示 -->
 <div id="characters">
@@ -6,4 +6,4 @@
 <%= link_to chara, characters_select_path(:loc_name => @loc_name, :chara => chara), :class => "btn spinner" %>
 <% end %>
 </div>
-<%= link_to "別のタイプを表示", characters_path(:location =>@loc_name), :class => "btn_reload" %>
+<%= link_to "", characters_path(:location =>@loc_name), :class => "spinner btn-reload-chara btn-tooltip", :title => "別の選択肢を表示" %>

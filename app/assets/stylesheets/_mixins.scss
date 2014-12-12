@@ -1,0 +1,33 @@
+//ボタンホバー用Mixin
+@mixin hover{
+  &:hover{
+    cursor: pointer;
+    opacity: 0.8;
+  }
+}
+
+//アイコンボタン用Mixin
+@mixin btn-icon($icon_path){
+  position: absolute;
+  background: url($icon_path) no-repeat top left;
+  width: 35px;
+  height: 35px;
+  opacity: 0.5;
+  @include hover;
+}
+
+//センタリング用Mixin
+@mixin virtical-centering{
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+}
+
+//センタリング用Mixin
+@mixin horizontal-centering{
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: auto;
+}

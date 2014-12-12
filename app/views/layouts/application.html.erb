@@ -13,18 +13,33 @@
 </head>
 
 <body>
-  <img src="/images/bg02.jpg" class="img-responsive"></img>
-  <a id="redirect_root" class="navbar-brand" >Aimai Lunch</a>
-  <div class="main_content text-center">
+  <div class="main-content">
     <%= bootstrap_flash %>
     <%= yield %>
   </div>
+  <div class="btn-home btn-tooltip" title="Topへ戻る"></div>
 
   <script type="text/javascript">
-  $('#redirect_root').click(function() {
+  $('.btn-home').click(function() {
     $('head').append('<meta http-equiv="refresh" content="0; URL=/">');
   });
+
+  var resize = function(){
+    var ww = $(window).width();
+    var wh = $(window).height();
+    var size = Math.max(ww * 0.3, wh * 0.44); <!--皿のサイズの計算-->
+    $('.main-content').css('width', size + 'px');
+    $('.main-content').css('height', size * 1.2 + 'px');
+  }
+
+  resize();
+  $(window).resize(resize);
+
+  <!--ツールチップ-->
+  $(".btn-tooltip").tooltip()
   </script>
+
+</body>
 
 </body>
 </html>
