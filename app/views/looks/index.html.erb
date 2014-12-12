@@ -1,0 +1,9 @@
+<p class="explation">こんな人はどう？</p>
+
+<% looks_img = @looks_img.shuffle[0] %>
+<div id="looks">
+<img src="<%= looks_img %>" />
+</div>
+<%= link_to 'タイプ！', looks_select_path(:location => @loc_name,:img_url => looks_img), :class => 'btn btn-success spinner' %>
+<%= link_to "別の人を表示", looks_path(:location =>@loc_name), :class => "btn_reload" %>
+

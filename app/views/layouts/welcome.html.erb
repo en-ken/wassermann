@@ -76,12 +76,12 @@
       </article>
 
       <article>
-        <a href="javascript:void(0);" class="image featured"><img src="images/pic01.jpg" alt="" /></a>
+        <%= link_to image_tag('pic01.jpg'), looks_path, :class => "image featured spinner choice", :name => "looks" %>
         <header>
-          <h3><a href="javascript:void(0);">顔でえらぶ</a></h3>
+          <h3><%= link_to "顔でえらぶ", looks_path, :class => "spinner choice", :name => "looks" %></h3>
         </header>
         <p>おとこは顔がよければ何でもいい！</p>
-        <p class="textS">そんなビジュアル重視のあなたは、写真からランチするお店を決めてみませんか？</p></a>
+        <p class="textS">そんなビジュアル重視のあなたは、写真からランチするお店を決めてみませんか？</p>
       </article>
 
       <article>
