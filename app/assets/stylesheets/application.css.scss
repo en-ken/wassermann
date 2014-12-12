@@ -51,9 +51,22 @@ body{
   bottom: 20px; //下からの距離だけ指定
 }
 
+//Face Reputation画面用
+.btn-select {
+  @include btn-icon('/images/determine.png');
+  left: 60%;
+  right: 35%;
+  bottom: 0;
+}
+
 .main-content {
   @include virtical-centering;
   @include horizontal-centering;
+}
+
+.explanation {
+  color: black;
+  font-size: 20px;
 }
 
 

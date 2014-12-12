@@ -1,11 +1,24 @@
 // Place all the styles related to the looks controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+@import "mixins";
 
 #looks img {
+  @include horizontal-centering;
   max-width: 200px;
   max-height: 280px;
-  margin-left: auto;
-  margin-right: auto;
-  padding: 10px;
+}
+
+.btn-reload-face {
+  @include btn-icon('/images/reload.png');
+  left: 33%;
+  right: 62%;
+  bottom: 0;
+}
+
+.btn-select-face {
+  @include btn-icon('/images/determine.png');
+  left: 60%;
+  right: 35%;
+  bottom: 0;
 }

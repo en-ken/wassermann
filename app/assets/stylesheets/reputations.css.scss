@@ -11,14 +11,14 @@
   font-size: 2em;
 }
 
-.btn-reload-rept {
+.btn-reload-rep {
   @include btn-icon('/images/reload.png');
   left: 33%;
   right: 62%;
   bottom: 0;
 }
 
-.btn-select {
+.btn-select-rep {
   @include btn-icon('/images/determine.png');
   left: 60%;
   right: 35%;
