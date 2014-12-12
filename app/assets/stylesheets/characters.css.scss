@@ -33,5 +33,5 @@
 .btn-reload-chara {
   @include horizontal-centering;
   @include btn-icon('/images/reload.png');
-  bottom: 0;
+  bottom: -20%;
 }

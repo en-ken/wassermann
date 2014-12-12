@@ -48,15 +48,7 @@ body{
 .btn-home{
   @include btn-icon('/images/home_icon.png');
   @include horizontal-centering;
-  bottom: 20px; //下からの距離だけ指定
-}
-
-//Face Reputation画面用
-.btn-select {
-  @include btn-icon('/images/determine.png');
-  left: 60%;
-  right: 35%;
-  bottom: 0;
+  bottom: 5%; //下からの距離だけ指定
 }
 
 .main-content {

@@ -17,16 +17,16 @@
 }
 
 //センタリング用Mixin
-@mixin virtical-centering{
-  position: absolute;
+@mixin virtical-centering($pos: absolute){
+  position: $pos;
   top: 0;
   bottom: 0;
   margin: auto;
 }
 
 //センタリング用Mixin
-@mixin horizontal-centering{
-  position: absolute;
+@mixin horizontal-centering($pos: absolute){
+  position: $pos;
   left: 0;
   right: 0;
   margin: auto;
