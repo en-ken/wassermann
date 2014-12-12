@@ -44,7 +44,7 @@ html, body{
   background: #000;
   -ms-filter: "alpha(opacity=40)";
   filter: alpha(opacity=40);
-  opacity: 0.4;
+  opacity: 0;
   z-index: 99;
 }
 
@@ -60,4 +60,7 @@ html, body{
   border-radius: 100%;
   color: green;
   padding: 60px
+}
+div.spinner{
+	position: fixed!important;
 }

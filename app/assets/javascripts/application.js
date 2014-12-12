@@ -20,8 +20,8 @@ $(function(){
      $(document).on('click', '.spinner', function(){
           var opts = {
             lines: 13, // The number of lines to draw
-            length: 20, // The length of each line
-            width: 10, // The line thickness
+            length: 0, // The length of each line
+            width: 14, // The line thickness
             radius: 30, // The radius of the inner circle
             corners: 1, // Corner roundness (0..1)
             rotate: 0, // The rotation offset
