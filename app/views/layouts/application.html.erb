@@ -27,9 +27,9 @@
   var resize = function(){
     var ww = $(window).width();
     var wh = $(window).height();
-    var size = Math.max(ww * 0.3, wh * 0.44); <!--皿のサイズの計算-->
+    var size = Math.max(ww * 0.3, wh * 0.40); <!--皿のサイズの計算-->
     $('.main-content').css('width', size + 'px');
-    $('.main-content').css('height', size * 1.2 + 'px');
+    $('.main-content').css('height', size + 'px');
   }
 
   resize();

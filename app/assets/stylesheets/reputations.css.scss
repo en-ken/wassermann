@@ -5,22 +5,16 @@
 
 .comment {
   position: relative;
-  height:85%;
+  height:80%;
   overflow: scroll;
   color:rgb(128,89,4);
   font-size: 2em;
 }
 
-.btn-reload-rep {
-  @include btn-icon('/images/reload.png');
-  left: 33%;
-  right: 62%;
-  bottom: 0;
+.description {
+	text-align: center;
+	margin-bottom:80px;
 }
-
-.btn-select-rep {
-  @include btn-icon('/images/determine.png');
-  left: 60%;
-  right: 35%;
-  bottom: 0;
+.description p {
+    font-size: 21px;
 }

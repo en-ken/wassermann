@@ -1,9 +1,12 @@
-<p class="explanation">好きな雰囲気を選んでください。</p>
+<p class="explanation">こんな雰囲気の人は好き？</p>
 
 <!-- 配列をランダムに並び替えて先頭5つ表示 -->
+<% if @charas.nil? %>
+<h1>あなたに合う人はいないみたい…他の条件で探してみて！</h1>
+<% else %>
 <div id="characters">
-<% @charas.sort_by{rand}[0..2].each do |chara| %>
-<%= link_to chara, characters_select_path(:loc_name => @loc_name, :chara => chara), :class => "btn spinner" %>
-<% end %>
+<p><%= chara = @charas.shuffle[0] %></p>
 </div>
-<%= link_to "", characters_path(:location =>@loc_name), :class => "spinner btn-reload-chara btn-tooltip", :title => "別の選択肢を表示" %>
+<%= link_to "", characters_path(:location =>@loc_name), :class => "spinner btn-reload btn-tooltip", :title => "タイプじゃない…" %>
+<%= link_to "", characters_select_path(:loc_name => @loc_name, :chara => chara), :class => "spinner btn-select btn-tooltip", :title => "好きかも！" %>
+<% end %>
