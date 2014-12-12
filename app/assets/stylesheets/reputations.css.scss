@@ -11,17 +11,6 @@
   font-size: 2em;
 }
 
-.btn-reload-rep {
-  @include btn-icon('/images/reload.png');
-  left: 0;
-  bottom: -20%;
-}
-
-.btn-select-rep {
-  @include btn-icon('/images/determine.png');
-  right: 32px;
-  bottom: -20%;
-}
 .description {
   position: relative;
   top: -120px;

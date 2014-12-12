@@ -4,5 +4,5 @@
 <div id="looks">
 <img src="<%= looks_img %>" class="img-thumbnail" >
 </div>
-<%= link_to '', looks_select_path(:location => @loc_name,:img_url => looks_img), :class => 'spinner btn-select-face btn-tooltip', :title => "この人が好き!" %>
-<%= link_to '', looks_path(:location =>@loc_name), :class => "spinner btn-reload-face btn-tooltip", :title => "タイプじゃない・・・" %>
+<%= link_to '', looks_select_path(:location => @loc_name,:img_url => looks_img), :class => 'spinner btn-select btn-tooltip', :title => "この人が好き!" %>
+<%= link_to '', looks_path(:location =>@loc_name), :class => "spinner btn-reload btn-tooltip", :title => "タイプじゃない・・・" %>

@@ -51,6 +51,18 @@ body{
   bottom: 5%; //下からの距離だけ指定
 }
 
+.btn-reload {
+  @include btn-icon('/images/reload.png');
+  left: 0;
+  bottom: -20%;
+}
+
+.btn-select {
+  @include btn-icon('/images/determine.png');
+  right: 0;
+  bottom: -20%;
+}
+
 .main-content {
   @include virtical-centering;
   @include horizontal-centering;

@@ -8,15 +8,3 @@
   max-width: 200px;
   max-height: 280px;
 }
-
-.btn-reload-face {
-  @include btn-icon('/images/reload.png');
-  left: 0;
-  bottom: -20%;
-}
-
-.btn-select-face {
-  @include btn-icon('/images/determine.png');
-  right: 32px;
-  bottom: -20%;
-}
