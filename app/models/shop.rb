@@ -25,7 +25,11 @@ class Shop
   #2つ目の戻り値で取得可能なページ数を返す
   #デフォルトのrange=3は1000m範囲
   def self.search_reputation(loc_name, range = 3, offset_page = 1)
-    data = JSON.parse (get_json_of_reputation_api(loc_name, range, offset_page))
+    result = get_json_of_reputation_api(loc_name, range, offset_page)
+    if result.nil?
+      return nil
+    end
+    data = JSON.parse (result)
 
     shops = Array.new
 
@@ -64,7 +68,11 @@ class Shop
   #2つ目の戻り値で取得可能なページ数を返す
   #デフォルトのrange=3は1000m範囲
   def self.search(loc_name, freewords = '', range = 3, page = 1)
-    data = JSON.parse(get_json_of_restaurant_api(loc_name, freewords, range, page))
+    result = get_json_of_restaurant_api(loc_name, freewords, range, page)
+    if result.nil?
+      return nil
+    end
+    data = JSON.parse(result)
 
     shops = Array.new
 
@@ -122,6 +130,9 @@ class Shop
   #口コミAPIからJSON型データを取得する
   def self.get_json_of_reputation_api(loc_name, range, offset_page)
     location = Location.find_by(name: loc_name)
+    if location.blank?
+      return nil
+    end
     latitude_degree = location.latitude
     longitude_degree = location.longitude
 
@@ -148,6 +159,9 @@ class Shop
   #レストランAPIからJSONデータを取得する
   def self.get_json_of_restaurant_api(loc_name, freewords, range, offset_page)
     location = Location.find_by(name: loc_name)
+    if location.blank?
+      return nil
+    end
     latitude_degree = location.latitude
     longitude_degree = location.longitude
 
