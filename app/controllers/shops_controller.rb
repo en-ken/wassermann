@@ -9,11 +9,11 @@ class ShopsController < ApplicationController
       @shop = session[:shops][i]
     else #雰囲気または運命から来た場合
       @loc_name = params[:loc_name]
-		  freewords = params[:freewords]
-		  if freewords.blank? 
-				@chara = params[:chara]
-				freewords = get_freewords(@chara)
-		  end
+      freewords = params[:freewords]
+      if freewords.blank? 
+        @chara = params[:chara]
+        freewords = get_freewords(@chara)
+      end
 
       shops = Shop.search(@loc_name, freewords)
       if shops.blank?
