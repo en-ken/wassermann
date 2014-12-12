@@ -73,3 +73,6 @@
    float: left;
    padding: 6px;
 }
+div.spinner {
+	position: fixed !important;
+}
