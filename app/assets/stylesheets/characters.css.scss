@@ -5,27 +5,23 @@
 
 
 #characters {
-  position: relative;
   height: 65%;
-  .btn{
+  text-align: center;
+  p{
+    position: relative;
+    top: 50%;
     color: green;
-    border: 1px solid green;
     margin: 3%;
     display: block;
 
     @media only screen and (max-width:767px){
-      font-size: 20px;
+      font-size: 40px;
     }
     @media only screen and (min-width:768px) and (max-width:1199px){
-      font-size: 28px;
+      font-size: 48px;
     }
     @media only screen and (min-width:1200px){
-      font-size: 34px;
-    }
-
-    &:hover{
-      color: #fff;
-      background-color: green;
+      font-size: 54px;
     }
   }
 }
@@ -33,5 +29,15 @@
 .btn-reload-chara {
   @include horizontal-centering;
   @include btn-icon('/images/reload.png');
+  left: 33%;
+  right: 62%;
+  bottom: 0;
+}
+
+.btn-select-chara {
+  @include horizontal-centering;
+  @include btn-icon('/images/determine.png');
+  left: 60%;
+  right: 35%;
   bottom: 0;
 }
