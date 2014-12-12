@@ -12,7 +12,7 @@ class ShopsController < ApplicationController
       @chara = params[:chara]
       freewords = get_freewords(@chara)
 
-      shops = Shop.search_shops_from_rest_api(@loc_name, freewords)
+      shops = Shop.search(@loc_name, freewords)
       if shops.blank?
         @shop = nil
       else

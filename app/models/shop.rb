@@ -24,20 +24,23 @@ class Shop
   #口コミAPIを使用して店リストを取得
   #2つ目の戻り値で取得可能なページ数を返す
   #デフォルトのrange=3は1000m範囲
-  def self.search_shops_from_rept_api(loc_name, range = 3, offset_page = 1)
-    data = JSON.parse (json_from_rept_api(loc_name, range, offset_page))
-
-    if data['error'] then
-      p data['error']['code']
-      return nil
-    end
+  def self.search_reputation(loc_name, range = 3, offset_page = 1)
+    data = JSON.parse (get_json_of_reputation_api(loc_name, range, offset_page))
 
     shops = Array.new
+
+    #エラーまたは0件
+    if data['error'] then
+      p data['error']['code']
+      return shops
+    end
+
     pages = 0
+    count = 0
     data['response'].each do |key, value|
       if key == 'total_hit_count'
-        pages = value.to_i % 50 + 1 #ページ数を算出
-        p pages
+        count = value.to_i
+        pages = count / 50 + 1 #ページ数を算出
       elsif key =~ /[0-9]+/ #keyが数字のとき
         s = value['photo']
         #画像URLの取得
@@ -60,47 +63,64 @@ class Shop
   #レストランAPIを使用して店リストを取得
   #2つ目の戻り値で取得可能なページ数を返す
   #デフォルトのrange=3は1000m範囲
-  def self.search_shops_from_rest_api(loc_name, freewords = '', range = 3, page = 1)
-    data = JSON.parse (json_from_rest_api(loc_name, freewords, range, page))
-
-    if data['error'] then
-      puts data['error']['code']
-      return nil
-    end
-
-    pages = data['total_hit_count'].to_i % 50 + 1 #ページ数を算出
-    p pages
+  def self.search(loc_name, freewords = '', range = 3, page = 1)
+    data = JSON.parse(get_json_of_restaurant_api(loc_name, freewords, range, page))
 
     shops = Array.new
-    data['rest'].each do |rest|
-      img_url = ''
-      img_url1 = rest['image_url']['shop_image1']
-      img_url2 = rest['image_url']['shop_image2']
-      if img_url1.present?
-        img_url = img_url1
-      elsif img_url2.present?
-        img_url = img_url2
-      else
-        next
-      end
 
-      keywords = rest['code']['category_name_s']
-      keywords.delete_if {
-        |word| word.is_a? Hash
-      }
-      p keywords
-
-      shop = Shop.new(rest['name'], rest['url'], rest['pr']['short'], img_url, keywords)
-      shops.push(shop)
+    #エラーまたは0件
+    if data['error'] then
+      puts data['error']['code']
+      return shops
     end
-    p shops.length
+
+    count = data['total_hit_count'].to_i
+    pages = count / 50 + 1 #ページ数を算出
+
+    #1件
+    if count == 1
+      unless (shop = build(data['rest'])) == nil
+        shops.push(shop)
+      end
+      p shops.length
+      return shops
+    end
+
+    #2件以上
+    data['rest'].each do |rest|
+      unless (shop = build(rest)) == nil
+        shops.push(shop)
+      end
+    end
     return shops
   end
 
   private #===== 以下プライベートメソッド =====
 
+  #コンストラクタ railsのmodelに倣う
+  def self.build(rest)
+    p rest
+    img_url = ''
+    img_url1 = rest['image_url']['shop_image1']
+    img_url2 = rest['image_url']['shop_image2']
+    if img_url1.present?
+      img_url = img_url1
+    elsif img_url2.present?
+      img_url = img_url2
+    else
+      return nil;
+    end
+
+    keywords = rest['code']['category_name_s']
+    keywords.delete_if {
+      |word| word.is_a? Hash
+    }
+
+    return Shop.new(rest['name'], rest['url'], rest['pr']['short'], img_url, keywords)
+  end
+
   #口コミAPIからJSON型データを取得する
-  def self.json_from_rept_api(loc_name, range, offset_page)
+  def self.get_json_of_reputation_api(loc_name, range, offset_page)
     location = Location.find_by(name: loc_name)
     latitude_degree = location.latitude
     longitude_degree = location.longitude
@@ -126,7 +146,7 @@ class Shop
   end
 
   #レストランAPIからJSONデータを取得する
-  def self.json_from_rest_api(loc_name, freewords, range, offset_page)
+  def self.get_json_of_restaurant_api(loc_name, freewords, range, offset_page)
     location = Location.find_by(name: loc_name)
     latitude_degree = location.latitude
     longitude_degree = location.longitude
