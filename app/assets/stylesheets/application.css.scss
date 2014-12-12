@@ -46,7 +46,7 @@ body{
 }
 
 .btn-home{
-  @include btn-icon('/images/home1_icon.png');
+  @include btn-icon('/images/home_icon.png');
   @include horizontal-centering;
   bottom: 20px; //下からの距離だけ指定
 }
