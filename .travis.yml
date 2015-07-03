@@ -5,7 +5,7 @@ deploy:
   provider: heroku
   api_key:
     secure: aiFOXG901i3TGr8RWyI3nut02me/qzpR4gzU+To85qrP5xBYEKprRAyOvMEQhAObm9iGpoKA5GCrrV8UvgjSDmuCtDnYE8ha2OXfUOs9JY94sjStFn7h4H/IqpliYEEz0ks628iDIEj/HIecAsGR+h/eqJLVUpaO5d/jbTfwhZo=
-  run:
+    secure: pqMcL3ly+lD69U8RwHSROzL50uxwK2cy7kQptiwACrjsVUSE4Nrw4igbd9Ifl6u8YXkILBjMB4L9bUK8chkYvq9TOqg8KyYLSOVy1vXDRxkjdnneiEFTFDwXt6F1vzjbg6RTsScyFPiZBi/sU4+YOTg4w/3fnomhMJfNEvKBuDCvdrxVVLvODuvQaISgf34HQKKD5nuuo+MJWJ0Zjc+LGPdiGRvrpzOrYUSMttvoafxVevLl9znzXhzJwklOniTdcwuGEU2ocOp970wZX6VKC7hn0x1OlvC4OVBtALcVFy7Hq2fYWfHzgwqHOi3cM3PqW4s5ZxecrIo/LcVisjY1n+KdFRHKMEiQLAOgQoZAAvotQ7EkwSmfbAjfmC9lz28/shhWBxCL4AbOVKuPTgBRKIulFMx6MbQHwEPWPMXkyZ7NuhvqQcUNVAJUoDYlK/pwMj6Xcbto89BSHBtuF88TWAd4BL22Zs7l1hntmklSo8+VAd96NhAKqNK57YY+OzjezglD0TogeLprf0bss39fATof0DSZ9NAwEkl33P7kVTe5Ow7qn7CBYy5WT7XDrhROS1nz9yuzidPt+ML1HGskEk15z6tFz9nEgVWmot543hdt0v/CXmRIZy7usLs1Mpy0P6asJxNeN5PB7x8p1oNEgTd3wFtiOZAW76CA0+rfWls=
     - "rake db:migrate RAILS_ENV=development"
     - "rake db:seed"
     - "rake cleanup"
